@@ -166,6 +166,32 @@
         </div>
     </section>
 
+    <!-- Seção: Música da Equipe (Áudio) -->
+<section id="audio-section" class="py-5">
+    <div class="container">
+        <h2>Música Oficial da Equipe Bhaskara</h2>
+        <p>Confira a música oficial da nossa equipe para a Semana Cultural 2024!</p>
+        <div class="text-center my-4">
+            <audio id="audio-player" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1iDA_YP1Rl75pyBeEpsJ-l2npPpoicNyD" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        </div>
+        <div class="text-center">
+            <button id="rewind" class="btn">⏪ Retroceder 10s</button>
+            <button id="forward" class="btn">⏩ Avançar 10s</button>
+        </div>
+        <div class="text-center my-4">
+            <input type="range" id="progress-bar" min="0" value="0" step="1">
+            <span id="current-time">0:00</span> / <span id="total-duration">0:00</span>
+        </div>
+        <div class="text-center">
+            <label for="volume-control">Volume:</label>
+            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
+</section>
+
     <!-- Footer -->
     <footer class="py-4" style="background-color: #190d37;">
         <div class="container text-center text-white">
