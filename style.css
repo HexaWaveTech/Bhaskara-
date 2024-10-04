@@ -372,8 +372,9 @@ footer p {
 
 /* Seção: Postagens do Instagram */
 #instagram-posts {
+    background-color: #eaeaea; /* Cor de fundo */
     padding: 4rem 0;
-    text-align: center;
+    text-align: center; /* Centraliza o texto */
 }
 
 #instagram-posts h2 {
@@ -386,6 +387,22 @@ footer p {
     font-size: 1.2rem;
     color: var(--highlight-color);
     margin-bottom: 2rem;
+}
+
+/* Centralizando o conteúdo do Instagram */
+#post-container {
+    display: flex; /* Usando flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-direction: column; /* Organiza em coluna */
+    margin: 0 auto; /* Centraliza o container */
+}
+
+.instagram-media {
+    margin-bottom: 20px; /* Espaçamento inferior */
+    max-width: 90%; /* Limita a largura máxima */
+    border: none; /* Removendo bordas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adicionando sombra */
 }
 
 /* Estilo do carregador */
