@@ -311,3 +311,60 @@ footer p {
         height: 60px; /* Ajustando a altura do iframe em dispositivos móveis */
     }
 }
+
+/* Seção: Comunicado da Semana Cultural */
+#cultural-announcement {
+    background-color: var(--secondary-color);
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 5px solid var(--primary-color); /* Adicionando uma borda superior */
+    position: relative; /* Para facilitar o posicionamento de elementos */
+}
+
+#cultural-announcement h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase; /* Transformando o texto para maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+
+#cultural-announcement p {
+    font-size: 1.2rem;
+    color: var(--highlight-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.5; /* Melhorando o espaçamento entre linhas */
+}
+
+#cultural-announcement .btn {
+    background-color: var(--hover-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1rem; /* Adicionando um espaço acima do botão */
+}
+
+#cultural-announcement .btn:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 20px var(--btn-hover-shadow);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #cultural-announcement h2 {
+        font-size: 2rem; /* Reduzindo tamanho do texto em dispositivos móveis */
+    }
+
+    #cultural-announcement p {
+        font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
+    }
+
+    #cultural-announcement .btn {
+        font-size: 1rem; /* Reduzindo tamanho do botão em dispositivos móveis */
+        padding: 0.5rem 1rem; /* Ajustando padding do botão em dispositivos móveis */
+    }
+    }
