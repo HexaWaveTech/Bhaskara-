@@ -170,71 +170,18 @@ function displayTeamMembers() {
 // Carregando membros da equipe ao carregar a página
 window.addEventListener('load', displayTeamMembers);
 
-document.addEventListener('DOMContentLoaded', function () {
-    const audioPlayer = document.getElementById('audio-player');
-    const progressBar = document.getElementById('progress-bar');
-    const currentTimeDisplay = document.getElementById('current-time');
-    const totalDurationDisplay = document.getElementById('total-duration');
-    const rewindButton = document.getElementById('rewind');
-    const forwardButton = document.getElementById('forward');
-    const volumeControl = document.getElementById('volume-control');
+// Script para reproduzir a música quando a seção é visualizada
+const audioElement = document.getElementById('bhaskara-audio');
+const musicSection = document.getElementById('music');
 
-    // Formatação do tempo em minutos:segundos
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const sec = Math.floor(seconds % 60);
-        return `${minutes}:${sec < 10 ? '0' : ''}${sec}`;
-    }
-
-    // Atualizar a barra de progresso com base no tempo atual do áudio
-    function updateProgress() {
-        progressBar.max = Math.floor(audioPlayer.duration);
-        progressBar.value = Math.floor(audioPlayer.currentTime);
-        currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
-        totalDurationDisplay.textContent = formatTime(audioPlayer.duration);
-    }
-
-    // Atualizar o tempo de reprodução quando o usuário mover a barra de progresso
-    progressBar.addEventListener('input', function () {
-        audioPlayer.currentTime = progressBar.value;
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            audioElement.play();
+        } else {
+            audioElement.pause();
+        }
     });
+}, { threshold: 0.5 });
 
-    // Controlar o volume
-    volumeControl.addEventListener('input', function () {
-        audioPlayer.volume = volumeControl.value;
-    });
-
-    // Avançar 10 segundos
-    forwardButton.addEventListener('click', function () {
-        audioPlayer.currentTime = Math.min(audioPlayer.currentTime + 10, audioPlayer.duration);
-    });
-
-    // Retroceder 10 segundos
-    rewindButton.addEventListener('click', function () {
-        audioPlayer.currentTime = Math.max(audioPlayer.currentTime - 10, 0);
-    });
-
-    // Sincronizar a barra de progresso com o áudio durante a reprodução
-    audioPlayer.addEventListener('timeupdate', updateProgress);
-
-    // Exibir a duração total do áudio quando ele carregar
-    audioPlayer.addEventListener('loadedmetadata', function () {
-        totalDurationDisplay.textContent = formatTime(audioPlayer.duration);
-    });
-
-    // Quando o áudio terminar, reiniciar a barra de progresso
-    audioPlayer.addEventListener('ended', function () {
-        progressBar.value = 0;
-        currentTimeDisplay.textContent = "0:00";
-    });
-
-    // Adicionar animação quando o áudio está tocando
-    audioPlayer.addEventListener('play', function () {
-        document.getElementById('audio-section').style.animation = 'buttonPulse 1s infinite';
-    });
-
-    // Remover animação quando o áudio for pausado
-    audioPlayer.addEventListener('pause', function () {
-        document.getElementById('audio-section').style.animation = 'none';
-    });
-});
+observer.observe(musicSection);
