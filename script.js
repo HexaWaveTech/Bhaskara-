@@ -171,17 +171,3 @@ function displayTeamMembers() {
 window.addEventListener('load', displayTeamMembers);
 
 // Script para reproduzir a música quando a seção é visualizada
-const audioElement = document.getElementById('bhaskara-audio');
-const musicSection = document.getElementById('music');
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            audioElement.play();
-        } else {
-            audioElement.pause();
-        }
-    });
-}, { threshold: 0.5 });
-
-observer.observe(musicSection);
