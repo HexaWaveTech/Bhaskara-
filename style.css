@@ -262,3 +262,46 @@ footer p {
     display: block; /* Garantir que está sendo exibido como bloco */
     text-align: center; /* Centraliza o texto dentro do bloco */
 }
+
+/* Seção: Música da Semana Cultural */
+#cultural-music {
+    background-color: var(--secondary-color);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+#cultural-music h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+#cultural-music p {
+    font-size: 1.2rem;
+    color: var(--highlight-color);
+    margin-bottom: 2rem;
+}
+
+#cultural-music audio {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    #cultural-music h2 {
+        font-size: 2rem;
+    }
+
+    #cultural-music p {
+        font-size: 1rem;
+    }
+
+    #cultural-music audio {
+        max-width: 100%;
+    }
+}
