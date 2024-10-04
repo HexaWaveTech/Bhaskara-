@@ -268,40 +268,46 @@ footer p {
     background-color: var(--secondary-color);
     padding: 4rem 0;
     text-align: center;
+    border-top: 5px solid var(--primary-color); /* Adicionando uma borda superior */
+    position: relative; /* Para facilitar o posicionamento de elementos */
 }
 
 #cultural-music h2 {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    text-transform: uppercase; /* Transformando o texto para maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
 }
 
 #cultural-music p {
     font-size: 1.2rem;
     color: var(--highlight-color);
     margin-bottom: 2rem;
+    line-height: 1.5; /* Melhorando o espaçamento entre linhas */
 }
 
-#cultural-music audio {
+#cultural-music iframe {
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: var(--accent-color);
-    padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px; /* Mantendo o máximo de largura */
+    height: 80px; /* Definindo altura fixa */
+    border: none; /* Removendo borda padrão */
+    border-radius: 5px; /* Borda arredondada */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombras para profundidade */
+    margin: 0 auto; /* Centralizando o iframe */
 }
 
 @media (max-width: 768px) {
     #cultural-music h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Reduzindo tamanho do texto em dispositivos móveis */
     }
 
     #cultural-music p {
-        font-size: 1rem;
+        font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
     }
 
-    #cultural-music audio {
-        max-width: 100%;
+    #cultural-music iframe {
+        max-width: 100%; /* Garantindo que o iframe ocupe 100% da largura */
+        height: 60px; /* Ajustando a altura do iframe em dispositivos móveis */
     }
 }
