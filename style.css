@@ -319,6 +319,7 @@ footer p {
     text-align: center;
     border-top: 5px solid var(--primary-color); /* Adicionando uma borda superior */
     position: relative; /* Para facilitar o posicionamento de elementos */
+    margin-bottom: 10px;
 }
 
 #cultural-announcement h2 {
