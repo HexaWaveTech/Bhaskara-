@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Baskara - A Equipe Poderosa</title>
+    <title>Bhaskara - A Equipe Poderosa</title>
 
     <!-- Bibliotecas CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
@@ -20,16 +21,19 @@
     <link rel="stylesheet" href="style.css"> <!-- Seu CSS separado -->
 
 </head>
+
 <body>
+
     <!-- Header com navegação -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #190d37;">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg" alt="Logo Baskara" width="50">
-                    Baskara - Interclasse
+                    <img src="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg" alt="Logo Bhaskara" width="50">
+                    Bhaskara - Interclasse
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -39,6 +43,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#team">Nossa Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cultural-week">Semana Cultural</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#social">Redes Sociais</a>
@@ -55,26 +62,35 @@
             <h2 class="text-center" style="color: #7327b6;">Competições Ganhas</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card" data-aos="fade-up">
                         <div class="card-body">
                             <h5 class="card-title">Campeonato Escolar 2023</h5>
-                            <p class="card-text">Baskara foi campeã no Campeonato Escolar de 2023, vencendo a final por 35x28!</p>
+                            <p class="card-text">Bhaskara foi campeã no Campeonato Escolar de 2023, vencendo a final por 35x28 com uma defesa sólida e ataques rápidos!</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-body">
                             <h5 class="card-title">Interclasse 2022</h5>
-                            <p class="card-text">Conquistamos o título com uma performance brilhante do 7º ano, derrotando o 9º ano com placar de 40x32.</p>
+                            <p class="card-text">No Interclasse 2022, conquistamos o título com uma performance brilhante do 7º ano, derrotando o 9º ano com placar de 40x32!</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-body">
                             <h5 class="card-title">Torneio Regional 2021</h5>
-                            <p class="card-text">Fomos campeões invictos no torneio regional, destacando a força de nossa equipe no 8º ano.</p>
+                            <p class="card-text">Fomos campeões invictos no torneio regional, destacando a força de nossa equipe no 8º ano!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nova competição -->
+                <div class="col-md-4">
+                    <div class="card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card-body">
+                            <h5 class="card-title">Torneio Interescolar 2024</h5>
+                            <p class="card-text">A equipe Bhaskara fez história ao vencer o Torneio Interescolar de 2024, garantindo mais um título para o 8º ano!</p>
                         </div>
                     </div>
                 </div>
@@ -86,7 +102,36 @@
     <section id="team" class="py-5" style="background-color: #5b457a;">
         <div class="container">
             <h2 class="text-center text-white">Nossa Equipe</h2>
-            <p class="text-center text-white">A equipe Baskara é formada pelos alunos do 7º e 8º anos. Juntos, somos poderosos e unidos em busca da vitória!</p>
+            <p class="text-center text-white">A equipe Bhaskara é composta pelos alunos do 7º e 8º anos, conhecidos pela sua união e paixão por competir.</p>
+            <div id="team-members" class="row">
+                <!-- Os membros da equipe serão gerados dinamicamente pelo JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Semana Cultural -->
+    <section id="cultural-week" class="py-5">
+        <div class="container">
+            <h2 class="text-center" style="color: #7327b6;">Semana Cultural 2024</h2>
+            <p class="text-center">Nossa Semana Cultural está chegando! Prepare-se para competições esportivas, apresentações artísticas e muito mais. Fique ligado nas datas e participe!</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Esportes e Atividades Físicas</h5>
+                            <p class="card-text">Desde basquete até corrida, nossa Semana Cultural oferece diversas competições esportivas para todos os alunos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Apresentações Artísticas</h5>
+                            <p class="card-text">Alunos do 7º e 8º anos irão apresentar suas habilidades em música, teatro e dança durante a Semana Cultural.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -95,13 +140,13 @@
         <div class="container">
             <h2 class="text-center" style="color: #c9bad3;">Nossas Redes Sociais</h2>
             <div class="text-center">
-                <a href="https://www.instagram.com" class="me-3">
+                <a href="https://www.instagram.com" class="me-3 hvr-grow">
                     <i class="fab fa-instagram fa-3x" style="color: #8b8c96;"></i>
                 </a>
-                <a href="https://www.facebook.com" class="me-3">
+                <a href="https://www.facebook.com" class="me-3 hvr-grow">
                     <i class="fab fa-facebook fa-3x" style="color: #8b8c96;"></i>
                 </a>
-                <a href="https://www.twitter.com" class="me-3">
+                <a href="https://www.twitter.com" class="me-3 hvr-grow">
                     <i class="fab fa-twitter fa-3x" style="color: #8b8c96;"></i>
                 </a>
             </div>
@@ -111,7 +156,7 @@
     <!-- Footer -->
     <footer class="py-4" style="background-color: #190d37;">
         <div class="container text-center text-white">
-            <p>Baskara - Equipe Poderosa do 7º e 8º Anos | Interclasse</p>
+            <p>Bhaskara - Equipe Poderosa do 7º e 8º Anos | Interclasse & Semana Cultural 2024</p>
         </div>
     </footer>
 
@@ -124,5 +169,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="script.js"></script> <!-- Seu JS separado -->
+
+    <script>
+        // Inicializar animações on scroll (AOS)
+        AOS.init();
+
+        // Exemplo de adição dinâmica de membros da equipe via JavaScript
+        const teamMembers = [
+            { name: 'João Silva', role: 'Capitão', year: '8º ano', img: 'path-to-img1.jpg' },
+            { name: 'Maria Oliveira', role: 'Jogadora', year: '7º ano', img: 'path-to-img2.jpg' },
+            { name: 'Lucas Pereira', role: 'Defesa', year: '8º ano', img: 'path-to-img3.jpg' },
+        ];
+
+        const teamContainer = document.getElementById('team-members');
+        teamMembers.forEach(member => {
+            const memberCard = `
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card">
+                        <img src="${member.img}" class="card-img-top" alt="${member.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${member.name}</h5>
+                            <p class="card-text">${member.role} - ${member.year}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            teamContainer.innerHTML += memberCard;
+        });
+
+        // Sistema de contagem regressiva para a Semana Cultural
+        const culturalWeekDate = new Date('2024-11-15T00:00:00');
+        const countdownElement = document.createElement('div');
+        countdownElement.classList.add('text-center', 'my-4', 'countdown-timer');
+        document.getElementById('cultural-week').appendChild(countdownElement);
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = culturalWeekDate - now;
+
+            if (timeDifference > 0) {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `<h4>Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o início da Semana Cultural!</h4>`;
+            } else {
+                countdownElement.innerHTML = '<h4>A Semana Cultural já começou! Aproveite as atividades.</h4>';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+    <script src="script.js"></script>
 </body>
-                  </html>
+
+</html>
