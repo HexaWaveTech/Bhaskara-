@@ -369,3 +369,39 @@ footer p {
         padding: 0.5rem 1rem; /* Ajustando padding do botão em dispositivos móveis */
     }
     }
+
+/* Seção: Postagens do Instagram */
+#instagram-posts {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+#instagram-posts h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+#instagram-posts p {
+    font-size: 1.2rem;
+    color: var(--highlight-color);
+    margin-bottom: 2rem;
+}
+
+/* Estilo do carregador */
+.loader {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #instagram-posts h2 {
+        font-size: 2rem; /* Reduzindo tamanho do texto em dispositivos móveis */
+    }
+
+    #instagram-posts p {
+        font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
+    }
+}
