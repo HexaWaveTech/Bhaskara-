@@ -87,6 +87,23 @@
     </div>
 </section>
 
+    <!-- Seção: Nossas Postagens do Instagram -->
+<section id="instagram-posts" class="py-5" style="background-color: #c9bad3;">
+    <div class="container">
+        <h2 class="text-center" style="color: #190d37;">Nossas Postagens no Instagram</h2>
+        <p class="text-center" style="color: #5b457a;">Confira as últimas postagens da nossa equipe!</p>
+        <div class="text-center" id="post-container">
+            <!-- Insira o código de embed aqui -->
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DAtJlkRu-Z9/" data-instgrm-version="12">
+                <a href="https://www.instagram.com/p/DAtJlkRu-Z9/">Postagem do Instagram</a>
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+        <div id="loader" class="loader" style="display: none;">Carregando mais postagens...</div>
+        <button id="load-more" class="btn">Ver mais postagens</button>
+    </div>
+</section>
+
     <!-- Seção: Nossa Equipe -->
     <section id="team" class="py-5" style="background-color: #5b457a;">
         <div class="container">
@@ -275,6 +292,40 @@
   }
 
   setInterval(updateCountdown, 1000);
+
+        // instagram.js
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loadMoreButton = document.getElementById("load-more");
+    const postContainer = document.getElementById("post-container");
+    const loader = document.getElementById("loader");
+
+    loadMoreButton.addEventListener("click", function () {
+        // Exibir o carregador
+        loader.style.display = "block";
+        loadMoreButton.disabled = true; // Desabilitar o botão enquanto carrega
+
+        // Simulação de carregamento de postagens
+        setTimeout(() => {
+            // Aqui você pode adicionar mais postagens
+            const newPost = document.createElement("blockquote");
+            newPost.className = "instagram-media";
+            newPost.setAttribute("data-instgrm-permalink", "https://www.instagram.com/p/DAtJlkRu-Z9/");
+            newPost.setAttribute("data-instgrm-version", "12");
+            newPost.innerHTML = '<a href="https://www.instagram.com/p/DAtJlkRu-Z9/">Nova Postagem do Instagram</a>';
+            postContainer.appendChild(newPost);
+
+            // Carregar novamente o script do Instagram para a nova postagem
+            const script = document.createElement("script");
+            script.src = "//www.instagram.com/embed.js";
+            document.body.appendChild(script);
+
+            // Ocultar o carregador e habilitar o botão
+            loader.style.display = "none";
+            loadMoreButton.disabled = false;
+        }, 2000); // Simulando 2 segundos de carregamento
+    });
+});
     </script>
           
 </body>
