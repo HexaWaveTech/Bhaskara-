@@ -253,10 +253,12 @@ footer p {
 .countdown-timer {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: #7327b6;
     margin: 20px 0;
     padding: 10px;
     border: 2px solid #7327b6;
     border-radius: 10px;
     background-color: #c9bad3;
+    display: block; /* Garantir que está sendo exibido como bloco */
+    text-align: center; /* Centraliza o texto dentro do bloco */
 }
