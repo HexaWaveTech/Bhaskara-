@@ -63,8 +63,8 @@
         <p class="text-center">Nossa Semana Cultural está chegando! Prepare-se para competições esportivas, apresentações artísticas e muito mais. Fique ligado nas datas e participe!</p>
         
         <!-- Cronômetro -->
-        <div class="text-center my-4 countdown-timer" id="countdown-timer">
-            <h4 id="countdown"></h4>
+        <div class="text-center my-4 countdown-timer" id="countdown">
+            <!-- O conteúdo do cronômetro será atualizado aqui pelo JS -->
         </div>
     </div>
 </section>
@@ -238,7 +238,7 @@
     <script type="module">
   // Importar as funções necessárias do SDK do Firebase
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-  import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
 
   // Configuração do Firebase
   const firebaseConfig = {
@@ -258,9 +258,8 @@
   // Data da Semana Cultural
   const culturalWeekDate = new Date('2024-10-25T00:00:00');
 
-  const countdownElement = document.createElement('div');
-  countdownElement.classList.add('countdown-timer');
-  document.body.appendChild(countdownElement); // Adiciona o elemento ao corpo
+  // Selecionar o elemento da seção da Semana Cultural
+  const countdownElement = document.getElementById('countdown');
 
   function updateCountdown() {
       const now = new Date();
@@ -289,6 +288,6 @@
 
   setInterval(updateCountdown, 1000);
     </script>
+          
 </body>
-
 </html>
