@@ -552,3 +552,103 @@ footer .list-inline-item a:hover {
 }
 
 /* Estilos para a Seção da Semana Cultural */
+/* Estilos para a Seção da Semana Cultural */
+#cultural-week {
+    background-color: var(--secondary-color);
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 5px solid var(--primary-color);
+    position: relative;
+    animation: fadeIn 1s ease-in-out both;
+}
+
+#cultural-week .week-title {
+    font-size: 2.5rem;
+    color: var(--hover-color);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase; /* Maiúsculas para destacar o título */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+
+#cultural-week .week-description,
+#cultural-week .week-message {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.6; /* Melhorando o espaçamento entre linhas */
+}
+
+#cultural-week .week-logo {
+    max-width: 200px; /* Limite de largura para a imagem */
+    height: auto;
+    border-radius: 10px; /* Borda arredondada na imagem */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+    margin: 1.5rem 0; /* Margem para espaçamento */
+}
+
+#cultural-week .schedule-title {
+    font-size: 1.5rem; /* Tamanho maior para destaque */
+    margin-top: 2rem; /* Margem superior para espaçamento */
+}
+
+#cultural-week .schedule-button {
+    background-color: var(--hover-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cultural-week .schedule-button:hover {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 20px var(--btn-hover-shadow);
+}
+
+/* Estilos para os cartões de competições */
+.activity-card {
+    background-color: var(--accent-color);
+    border: none;
+    margin: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.activity-title {
+    color: var(--highlight-color);
+    font-weight: bold;
+    font-size: 1.5rem; /* Tamanho maior para destaque */
+}
+
+.activity-description {
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #cultural-week .week-title {
+        font-size: 2rem; /* Reduzindo o tamanho do texto em dispositivos móveis */
+    }
+
+    #cultural-week .week-description,
+    #cultural-week .week-message {
+        font-size: 1rem; /* Reduzindo o tamanho do texto em dispositivos móveis */
+    }
+
+    #cultural-week .schedule-button {
+        font-size: 1rem; /* Reduzindo o tamanho do botão em dispositivos móveis */
+        padding: 0.5rem 1rem; /* Ajustando padding do botão em dispositivos móveis */
+    }
+
+    .activity-card {
+        margin-bottom: 1rem; /* Ajustando margens para responsividade */
+    }
+}
