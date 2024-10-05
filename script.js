@@ -171,30 +171,35 @@ function displayTeamMembers() {
 window.addEventListener('load', displayTeamMembers);
 
 // Script para reproduzir a música quando a seção é visualizada
-const memberImages = [
-    " https://i.ibb.co/yVCgCDQ/20241002-095450.jpg ", // Coloque os links das imagens aqui
-    "https://i.imgur.com/link2.jpg",
-    "https://i.imgur.com/link3.jpg",
-    // Adicione mais links até completar 42
+const members = [
+    // Substitua os links abaixo pelos URLs das fotos hospedadas no Imgbb
+    "https://i.ibb.co/xxxxxx/member1.jpg",
+    "https://i.ibb.co/xxxxxx/member2.jpg",
+    "https://i.ibb.co/xxxxxx/member3.jpg",
+    // Continue adicionando até completar os 42 membros
 ];
 
 let currentIndex = 0;
 
-// Inicializa a imagem do primeiro membro
-document.getElementById('member-image').src = memberImages[currentIndex];
+const photoContainer = document.getElementById("member-photo");
+const prevButton = document.getElementById("prev-member");
+const nextButton = document.getElementById("next-member");
 
-// Função para atualizar a imagem
-function updateImage() {
-    document.getElementById('member-image').src = memberImages[currentIndex];
+function showMember(index) {
+    photoContainer.innerHTML = `<img src="${members[index]}" alt="Membro da equipe">`;
 }
 
-// Eventos de clique para os botões
-document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : memberImages.length - 1;
-    updateImage();
+// Inicializa com o primeiro membro
+showMember(currentIndex);
+
+// Navegar para o membro anterior
+prevButton.addEventListener("click", () => {
+    currentIndex = (currentIndex === 0) ? members.length - 1 : currentIndex - 1;
+    showMember(currentIndex);
 });
 
-document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex < memberImages.length - 1) ? currentIndex + 1 : 0;
-    updateImage();
+// Navegar para o próximo membro
+nextButton.addEventListener("click", () => {
+    currentIndex = (currentIndex === members.length - 1) ? 0 : currentIndex + 1;
+    showMember(currentIndex);
 });
