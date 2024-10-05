@@ -171,38 +171,27 @@ function displayTeamMembers() {
 window.addEventListener('load', displayTeamMembers);
 
 // Script para reproduzir a música quando a seção é visualizada
-const members = [
-    // Substitua os links abaixo pelos URLs das fotos hospedadas no Imgbb
-    "https://i.ibb.co/VVyhxNw/IMG-20241004-WA0071.jpg",
-    "https://i.ibb.co/7CWtXDb/IMG-20241004-WA0073.jpg",
-    "https://i.ibb.co/xxxxxx/member3.jpg",
-    // Continue adicionando até completar os 42 membros
-];
-
-let currentIndex = 0;
-
-const photoContainer = document.getElementById("member-photo");
-const prevButton = document.getElementById("prev-member");
-const nextButton = document.getElementById("next-member");
+let currentMember = 0; // Índice do membro atual
+const members = document.querySelectorAll('#team-members > div'); // Seleciona todos os membros
 
 function showMember(index) {
-    photoContainer.innerHTML = `<img src="${members[index]}" alt="Membro da equipe">`;
+    members.forEach((member, i) => {
+        member.style.display = (i === index) ? 'block' : 'none'; // Mostra ou esconde o membro
+    });
 }
 
-// Inicializa com o primeiro membro
-showMember(currentIndex);
+function nextMember() {
+    currentMember = (currentMember + 1) % members.length; // Incrementa o índice
+    showMember(currentMember); // Exibe o membro atual
+}
 
-// Navegar para o membro anterior
-prevButton.addEventListener("click", () => {
-    currentIndex = (currentIndex === 0) ? members.length - 1 : currentIndex - 1;
-    showMember(currentIndex);
-});
+function prevMember() {
+    currentMember = (currentMember - 1 + members.length) % members.length; // Decrementa o índice
+    showMember(currentMember); // Exibe o membro atual
+}
 
-// Navegar para o próximo membro
-nextButton.addEventListener("click", () => {
-    currentIndex = (currentIndex === members.length - 1) ? 0 : currentIndex + 1;
-    showMember(currentIndex);
-});
+// Inicializa a exibição do primeiro membro
+showMember(currentMember);
 
 // Script para atualizar o ano automaticamente no footer
 document.addEventListener("DOMContentLoaded", function () {
