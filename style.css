@@ -133,16 +133,47 @@ section {
 }
 
 /* Footer */
+/* Footer */
 footer {
     background-color: var(--primary-color);
-    padding: 1.5rem 0;
+    padding: 2rem 0;
+}
+
+footer h5 {
+    color: var(--text-light);
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 footer p {
     margin: 0;
     font-size: 1rem;
     color: var(--text-light);
-    text-align: center;
+}
+
+footer img {
+    max-width: 100px;
+    margin-bottom: 1rem;
+}
+
+footer .list-inline {
+    margin-top: 1rem;
+    padding: 0;
+}
+
+footer .list-inline-item {
+    margin-right: 10px;
+}
+
+footer .list-inline-item a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .list-inline-item a:hover {
+    color: var(--hover-color);
 }
 
 /* Botões */
