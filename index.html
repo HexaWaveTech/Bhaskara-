@@ -108,33 +108,13 @@
     <div class="container">
         <h2 class="text-center text-white">Nossa Equipe</h2>
         <p class="text-center text-white">A equipe Bhaskara é composta pelos alunos do 7º e 8º anos, conhecidos pela sua união e paixão por competir.</p>
-        
-        <div id="team-members" class="row justify-content-center">
-            <!-- Membro 1 -->
-            <div class="col-12 text-center">
-                <div id="team-member">
-                    <button class="btn" onclick="prevMember()">← Voltar</button>
-                    <img id="member-image" src="https://i.ibb.co/BybLF82/IMG-20241004-WA0072.jpg" alt="Membro 1">
-                    <button class="btn" onclick="nextMember()">Avançar →</button>
-                </div>
+        <div class="text-center">
+            <button id="prevBtn" class="btn btn-light">← Voltar</button>
+            <div id="team-member" class="img-hover-zoom">
+                <img id="memberImage" src="
+https://i.ibb.co/VVyhxNw/IMG-20241004-WA0071.jpg" alt="Membro da Equipe" />
             </div>
-            <!-- Membro 2 -->
-            <div class="col-12 text-center" style="display:none;">
-                <div id="team-member">
-                    <button class="btn" onclick="prevMember()">← Voltar</button>
-                    <img id="member-image" src="https://i.ibb.co/7CWtXDb/IMG-20241004-WA0073.jpg" alt="Membro 2">
-                    <button class="btn" onclick="nextMember()">Avançar →</button>
-                </div>
-            </div>
-            <!-- Membro 3 -->
-            <div class="col-12 text-center" style="display:none;">
-                <div id="team-member">
-                    <button class="btn" onclick="prevMember()">← Voltar</button>
-                    <img id="member-image" src="https://i.ibb.co/VVyhxNw/IMG-20241004-WA0071.jpg" alt="Membro 3">
-                    <button class="btn" onclick="nextMember()">Avançar →</button>
-                </div>
-            </div>
-            <!-- Adicione mais membros conforme necessário -->
+            <button id="nextBtn" class="btn btn-light">Avançar →</button>
         </div>
     </div>
     </section>
@@ -383,27 +363,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-        let currentMember = 0; // Índice do membro atual
-const members = document.querySelectorAll('#team-members > div'); // Seleciona todos os membros
+        const teamMembers = [
+    'https://i.ibb.co/VVyhxNw/IMG-20241004-WA0071.jpg',
+    'https://i.ibb.co/7CWtXDb/IMG-20241004-WA0073.jpg',
+    // Adicione as URLs das 42 imagens aqui
+];
 
-function showMember(index) {
-    members.forEach((member, i) => {
-        member.style.display = (i === index) ? 'block' : 'none'; // Mostra ou esconde o membro
-    });
-}
+let currentIndex = 0;
 
-function nextMember() {
-    currentMember = (currentMember + 1) % members.length; // Incrementa o índice
-    showMember(currentMember); // Exibe o membro atual
-}
+const memberImage = document.getElementById('memberImage');
 
-function prevMember() {
-    currentMember = (currentMember - 1 + members.length) % members.length; // Decrementa o índice
-    showMember(currentMember); // Exibe o membro atual
-}
+document.getElementById('nextBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % teamMembers.length;
+    memberImage.src = teamMembers[currentIndex];
+});
 
-// Inicializa a exibição do primeiro membro
-showMember(currentMember);
+document.getElementById('prevBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + teamMembers.length) % teamMembers.length;
+    memberImage.src = teamMembers[currentIndex];
+});
     </script>
           
 </body>
