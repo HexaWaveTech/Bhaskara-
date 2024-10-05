@@ -600,30 +600,7 @@ footer .list-inline-item a:hover {
     box-shadow: 0 0 20px var(--btn-hover-shadow);
 }
 
-/* Estilos para os cartões de competições */
-.card {
-    background-color: var(--accent-color);
-    border: none;
-    margin: 1rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.card-title {
-    color: var(--highlight-color);
-    font-weight: bold;
-    font-size: 1.5rem; /* Tamanho maior para destaque */
-}
-
-.card-text {
-    color: var(--text-light);
-    line-height: 1.4;
-}
+/* Estilos para os cartões de competições 
 
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
@@ -639,8 +616,5 @@ footer .list-inline-item a:hover {
         font-size: 1rem; /* Reduzindo o tamanho do botão em dispositivos móveis */
         padding: 0.5rem 1rem; /* Ajustando padding do botão em dispositivos móveis */
     }
-
-    .card {
-        margin-bottom: 1rem; /* Ajustando margens para responsividade */
     }
-}
+
