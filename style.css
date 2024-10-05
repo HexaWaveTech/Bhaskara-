@@ -454,4 +454,74 @@ footer .list-inline-item a:hover {
     }
 }
 
+/* Seção: Equipe */
+#team {
+    padding: 4rem 0;
+    background-color: #5b457a; /* Cor de fundo da seção */
+    text-align: center;
+}
 
+#team h2 {
+    font-size: 2.5rem;
+    color: var(--text-light); /* Cor do texto */
+    margin-bottom: 1.5rem;
+}
+
+#team p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* Estilo do membro da equipe */
+#team-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#member-image {
+    width: 200px; /* Largura fixa */
+    height: 200px; /* Altura fixa */
+    border-radius: 50%; /* Imagem redonda */
+    object-fit: cover; /* Corta a imagem para caber */
+    margin: 0 1rem; /* Espaçamento horizontal */
+}
+
+/* Estilo dos botões */
+.btn {
+    background-color: var(--highlight-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 20px var(--btn-hover-shadow);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #team h2 {
+        font-size: 2rem; /* Reduzindo tamanho do texto em dispositivos móveis */
+    }
+
+    #team p {
+        font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
+    }
+
+    #member-image {
+        width: 150px; /* Reduzindo largura em dispositivos móveis */
+        height: 150px; /* Reduzindo altura em dispositivos móveis */
+    }
+
+    .btn {
+        font-size: 1rem; /* Reduzindo tamanho do botão em dispositivos móveis */
+        padding: 0.4rem 0.8rem; /* Ajustando o padding do botão */
+    }
+}
