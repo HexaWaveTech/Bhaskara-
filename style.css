@@ -423,31 +423,64 @@ footer p {
     }
 }
 
-#team-member {
-    margin: 2rem auto;
+/* Seção da equipe */
+#team {
+    background-color: #5b457a;
+    color: #fff;
+}
+
+.team-navigation {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-#member-image {
-    width: 150px; /* Ajuste conforme necessário */
-    height: 150px; /* Ajuste conforme necessário */
-    margin: 0 2rem;
-    border: 5px solid var(--text-light); /* Borda branca para a imagem */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
-}
-
-.btn {
-    background-color: var(--highlight-color);
-    color: var(--text-light);
+.nav-btn {
+    background-color: #7327b6;
+    color: #ffffff;
     border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    margin: 0 1rem; /* Espaço entre os botões */
+    padding: 10px 20px;
+    font-size: 1.2rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background-color: var(--hover-color);
+.nav-btn:hover {
+    background-color: #8b8c96;
+}
+
+.photo-container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ffffff;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-container:hover img {
+    transform: scale(1.1); /* Zoom na imagem ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+    .photo-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
 }
