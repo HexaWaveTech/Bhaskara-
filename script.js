@@ -173,8 +173,8 @@ window.addEventListener('load', displayTeamMembers);
 // Script para reproduzir a música quando a seção é visualizada
 const members = [
     // Substitua os links abaixo pelos URLs das fotos hospedadas no Imgbb
-    "https://i.ibb.co/xxxxxx/member1.jpg",
-    "https://i.ibb.co/xxxxxx/member2.jpg",
+    "https://i.ibb.co/VVyhxNw/IMG-20241004-WA0071.jpg",
+    "https://i.ibb.co/7CWtXDb/IMG-20241004-WA0073.jpg",
     "https://i.ibb.co/xxxxxx/member3.jpg",
     // Continue adicionando até completar os 42 membros
 ];
