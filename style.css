@@ -552,10 +552,8 @@ footer .list-inline-item a:hover {
 }
 
 /* Estilos para a Seção da Semana Cultural */
-/* Estilos para a Seção da Semana Cultural */
-/* Estilos para a Seção da Semana Cultural */
 #cultural-wee {
-    background-color: var(--secondary-color);
+    background-color: #f5f5f5; /* Cor de fundo mais suave */
     padding: 4rem 0;
     text-align: center;
     border-top: 5px solid var(--primary-color);
@@ -563,9 +561,16 @@ footer .list-inline-item a:hover {
     animation: fadeIn 1s ease-in-out both;
 }
 
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Alinhamento vertical */
+}
+
 #cultural-wee h2 {
     font-size: 2.5rem;
-    color: var(--hover-color);
+    color: #7327b6; /* Cor do título */
     margin-bottom: 1.5rem;
     text-transform: uppercase; /* Maiúsculas para destacar o título */
     letter-spacing: 1px; /* Espaçamento entre letras */
@@ -587,8 +592,8 @@ footer .list-inline-item a:hover {
 }
 
 #cultural-wee .btn {
-    background-color: var(--hover-color);
-    color: var(--text-light);
+    background-color: #7327b6; /* Cor do botão */
+    color: #ffffff; /* Cor do texto do botão */
     border: none;
     padding: 0.75rem 1.5rem;
     font-size: 1.2rem;
@@ -629,15 +634,15 @@ footer .list-inline-item a:hover {
 
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
-    #cultural-wee h2 {
+    #cultural-week h2 {
         font-size: 2rem; /* Reduzindo o tamanho do texto em dispositivos móveis */
     }
 
-    #cultural-wee p {
+    #cultural-week p {
         font-size: 1rem; /* Reduzindo o tamanho do texto em dispositivos móveis */
     }
 
-    #cultural-wee .btn {
+    #cultural-week .btn {
         font-size: 1rem; /* Reduzindo o tamanho do botão em dispositivos móveis */
         padding: 0.5rem 1rem; /* Ajustando padding do botão em dispositivos móveis */
     }
