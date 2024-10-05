@@ -422,3 +422,32 @@ footer p {
         font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
     }
 }
+
+#team-member {
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#member-image {
+    width: 150px; /* Ajuste conforme necessário */
+    height: 150px; /* Ajuste conforme necessário */
+    margin: 0 2rem;
+    border: 5px solid var(--text-light); /* Borda branca para a imagem */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+}
+
+.btn {
+    background-color: var(--highlight-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin: 0 1rem; /* Espaço entre os botões */
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+}
