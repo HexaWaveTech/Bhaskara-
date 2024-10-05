@@ -171,3 +171,30 @@ function displayTeamMembers() {
 window.addEventListener('load', displayTeamMembers);
 
 // Script para reproduzir a música quando a seção é visualizada
+const memberImages = [
+    " https://i.ibb.co/yVCgCDQ/20241002-095450.jpg ", // Coloque os links das imagens aqui
+    "https://i.imgur.com/link2.jpg",
+    "https://i.imgur.com/link3.jpg",
+    // Adicione mais links até completar 42
+];
+
+let currentIndex = 0;
+
+// Inicializa a imagem do primeiro membro
+document.getElementById('member-image').src = memberImages[currentIndex];
+
+// Função para atualizar a imagem
+function updateImage() {
+    document.getElementById('member-image').src = memberImages[currentIndex];
+}
+
+// Eventos de clique para os botões
+document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : memberImages.length - 1;
+    updateImage();
+});
+
+document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex < memberImages.length - 1) ? currentIndex + 1 : 0;
+    updateImage();
+});
