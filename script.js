@@ -203,3 +203,18 @@ nextButton.addEventListener("click", () => {
     currentIndex = (currentIndex === members.length - 1) ? 0 : currentIndex + 1;
     showMember(currentIndex);
 });
+
+// Script para atualizar o ano automaticamente no footer
+document.addEventListener("DOMContentLoaded", function () {
+    const yearElement = document.getElementById('current-year');
+    const currentYear = new Date().getFullYear();
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
+});
+
+// Script para abrir links do footer em novas abas
+const footerLinks = document.querySelectorAll('footer a');
+footerLinks.forEach(link => {
+    link.setAttribute('target', '_blank');
+});
