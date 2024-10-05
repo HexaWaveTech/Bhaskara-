@@ -382,6 +382,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2000); // Simulando 2 segundos de carregamento
     });
 });
+
+        let currentMember = 0; // Índice do membro atual
+const members = document.querySelectorAll('#team-members > div'); // Seleciona todos os membros
+
+function showMember(index) {
+    members.forEach((member, i) => {
+        member.style.display = (i === index) ? 'block' : 'none'; // Mostra ou esconde o membro
+    });
+}
+
+function nextMember() {
+    currentMember = (currentMember + 1) % members.length; // Incrementa o índice
+    showMember(currentMember); // Exibe o membro atual
+}
+
+function prevMember() {
+    currentMember = (currentMember - 1 + members.length) % members.length; // Decrementa o índice
+    showMember(currentMember); // Exibe o membro atual
+}
+
+// Inicializa a exibição do primeiro membro
+showMember(currentMember);
     </script>
           
 </body>
