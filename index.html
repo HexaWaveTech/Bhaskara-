@@ -104,16 +104,37 @@
     </div>
 </section>
 
-    <section id="team" class="py-5">
+    <section id="team" class="py-5" style="background-color: #5b457a;">
     <div class="container">
         <h2 class="text-center text-white">Nossa Equipe</h2>
         <p class="text-center text-white">A equipe Bhaskara é composta pelos alunos do 7º e 8º anos, conhecidos pela sua união e paixão por competir.</p>
-        <div class="team-navigation">
-            <button id="prev-member" class="nav-btn">&larr; Voltar</button>
-            <div id="member-photo" class="photo-container">
-                <!-- Imagem do membro será carregada aqui -->
+        
+        <div id="team-members" class="row justify-content-center">
+            <!-- Membro 1 -->
+            <div class="col-12 text-center">
+                <div id="team-member">
+                    <button class="btn" onclick="prevMember()">← Voltar</button>
+                    <img id="member-image" src="https://i.ibb.co/BybLF82/IMG-20241004-WA0072.jpg" alt="Membro 1">
+                    <button class="btn" onclick="nextMember()">Avançar →</button>
+                </div>
             </div>
-            <button id="next-member" class="nav-btn">Avançar &rarr;</button>
+            <!-- Membro 2 -->
+            <div class="col-12 text-center" style="display:none;">
+                <div id="team-member">
+                    <button class="btn" onclick="prevMember()">← Voltar</button>
+                    <img id="member-image" src="https://i.ibb.co/7CWtXDb/IMG-20241004-WA0073.jpg" alt="Membro 2">
+                    <button class="btn" onclick="nextMember()">Avançar →</button>
+                </div>
+            </div>
+            <!-- Membro 3 -->
+            <div class="col-12 text-center" style="display:none;">
+                <div id="team-member">
+                    <button class="btn" onclick="prevMember()">← Voltar</button>
+                    <img id="member-image" src="https://i.ibb.co/VVyhxNw/IMG-20241004-WA0071.jpg" alt="Membro 3">
+                    <button class="btn" onclick="nextMember()">Avançar →</button>
+                </div>
+            </div>
+            <!-- Adicione mais membros conforme necessário -->
         </div>
     </div>
     </section>
