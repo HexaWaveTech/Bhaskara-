@@ -121,29 +121,44 @@ https://i.ibb.co/VVyhxNw/IMG-20241004-WA0071.jpg" alt="Membro da Equipe" />
     
     <!-- Seção: Semana Cultural -->
     <section id="cultural-week" class="py-5">
-        <div class="container">
-            <h2 class="text-center" style="color: #7327b6;">Semana Cultural 2024</h2>
-            <p class="text-center">Nossa Semana Cultural está chegando! Prepare-se para competições esportivas, apresentações artísticas e muito mais. Fique ligado nas datas e participe!</p>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Esportes e Atividades Físicas</h5>
-                            <p class="card-text">Desde basquete até corrida, nossa Semana Cultural oferece diversas competições esportivas para todos os alunos.</p>
-                        </div>
+    <div class="container text-center">
+        <h2 style="color: #7327b6;">Semana Cultural 2024</h2>
+        <p>Nossa Semana Cultural está chegando! Prepare-se para competições esportivas, apresentações artísticas e muito mais. Fique ligado nas datas e participe!</p>
+        <img src="https://i.ibb.co/Bj8rCS1/IMG-20241005-WA0003.jpg" alt="Logo da Semana Cultural" class="img-fluid my-4" style="max-width: 200px;">
+        
+        <p class="my-4">Teremos uma variedade de esportes, e é fundamental que todos nós permaneçamos unidos durante esta experiência. Vamos competir com amizade e emoção, celebrando a camaradagem que torna nossa escola especial!</p>
+        
+        <h5 class="mt-4">Nosso Cronograma:</h5>
+        <button id="openModalBtn" class="btn btn-primary">Ver Cronograma</button>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Esportes e Atividades Físicas</h5>
+                        <p class="card-text">Desde basquete até corrida, nossa Semana Cultural oferece diversas competições esportivas para todos os alunos.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Apresentações Artísticas</h5>
-                            <p class="card-text">Alunos do 7º e 8º anos irão apresentar suas habilidades em música, teatro e dança durante a Semana Cultural.</p>
-                        </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Apresentações Artísticas</h5>
+                        <p class="card-text">Alunos do 7º e 8º anos irão apresentar suas habilidades em música, teatro e dança durante a Semana Cultural.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span id="closeModalBtn" class="close">&times;</span>
+        <img src="https://i.ibb.co/MB8mrBP/IMG-20241004-WA0053.jpg" alt="Cronograma da Semana Cultural" style="max-width: 100%; height: auto;">
+    </div>
+</div>
 
     <!-- Seção: Redes Sociais -->
     <section id="social" class="py-5">
@@ -375,6 +390,28 @@ document.getElementById('prevBtn').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + teamMembers.length) % teamMembers.length;
     memberImage.src = teamMembers[currentIndex];
 });
+
+        // Obter elementos do DOM
+const modal = document.getElementById("modal");
+const openModalBtn = document.getElementById("openModalBtn");
+const closeModalBtn = document.getElementById("closeModalBtn");
+
+// Abrir modal
+openModalBtn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Fechar modal
+closeModalBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Fechar modal ao clicar fora do conteúdo
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
     </script>
           
 </body>
