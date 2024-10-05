@@ -424,6 +424,7 @@ footer p {
 }
 
 /* Seção da equipe */
+/* Seção da equipe */
 #team {
     background-color: #5b457a;
     color: #fff;
@@ -445,6 +446,7 @@ footer p {
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 5px; /* Melhorando os botões */
 }
 
 .nav-btn:hover {
@@ -460,6 +462,7 @@ footer p {
     border: 2px solid #ffffff;
     transition: transform 0.3s ease;
     overflow: hidden;
+    background-color: #c9bad3; /* Para o fundo da área da imagem */
 }
 
 .photo-container img {
