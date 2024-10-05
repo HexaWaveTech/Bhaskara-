@@ -171,27 +171,7 @@ function displayTeamMembers() {
 window.addEventListener('load', displayTeamMembers);
 
 // Script para reproduzir a música quando a seção é visualizada
-let currentMember = 0; // Índice do membro atual
-const members = document.querySelectorAll('#team-members > div'); // Seleciona todos os membros
 
-function showMember(index) {
-    members.forEach((member, i) => {
-        member.style.display = (i === index) ? 'block' : 'none'; // Mostra ou esconde o membro
-    });
-}
-
-function nextMember() {
-    currentMember = (currentMember + 1) % members.length; // Incrementa o índice
-    showMember(currentMember); // Exibe o membro atual
-}
-
-function prevMember() {
-    currentMember = (currentMember - 1 + members.length) % members.length; // Decrementa o índice
-    showMember(currentMember); // Exibe o membro atual
-}
-
-// Inicializa a exibição do primeiro membro
-showMember(currentMember);
 
 // Script para atualizar o ano automaticamente no footer
 document.addEventListener("DOMContentLoaded", function () {
