@@ -652,3 +652,48 @@ footer .list-inline-item a:hover {
         margin-bottom: 1rem; /* Ajustando margens para responsividade */
     }
 }
+
+
+/* Estilos para a seção de Divisão de Grupos */
+#group-division {
+    background-color: #f9f9f9;
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 5px solid #8E24AA;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #8E24AA;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.pdf-viewer iframe {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
+
+    .pdf-viewer iframe {
+        height: 300px;
+    }
+}
