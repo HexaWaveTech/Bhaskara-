@@ -187,3 +187,49 @@ const footerLinks = document.querySelectorAll('footer a');
 footerLinks.forEach(link => {
     link.setAttribute('target', '_blank');
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+        // Timer para a falha
+        let minutes = 90; // 1 hora e 30 minutos = 90 minutos
+        let seconds = 0;
+
+        const timerDisplay = document.getElementById('timer');
+
+        function updateTimer() {
+            if (seconds === 0) {
+                if (minutes > 0) {
+                    minutes--;
+                    seconds = 59;
+                }
+            } else {
+                seconds--;
+            }
+
+            // Exibir tempo formatado
+            const formattedTime = `${Math.floor(minutes / 60)}:${minutes % 60}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timerDisplay.textContent = formattedTime;
+
+            // Salvar no Firebase
+            database.ref('falhas/tempo').set(formattedTime);
+        }
+
+        setInterval(updateTimer, 1000); // Atualizar a cada segundo
+
+        // Exibição de status ao clicar
+        const statusItems = document.querySelectorAll('.status-item');
+
+        statusItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const status = this.getAttribute('data-status');
+                alert('Status: ' + status);
+
+                // Salvar status no Firebase
+                const itemName = this.querySelector('h5').textContent;
+                database.ref('falhas/' + itemName).set({
+                    status: status,
+                    timestamp: new Date().toISOString()
+                });
+            });
+        });
+    });
