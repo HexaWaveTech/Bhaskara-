@@ -8,6 +8,10 @@
     --text-light: #ffffff;
     --text-dark: #333333;
     --btn-hover-shadow: rgba(115, 39, 182, 0.5);
+    --gradient-1: linear-gradient(135deg, #190d37, #5b457a);
+    --gradient-2: linear-gradient(45deg, #7327b6, #c9bad3);
+    --box-shadow-1: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --box-shadow-2: 0 5px 15px rgba(115, 39, 182, 0.3);
 }
 
 /* Resetando margens e paddings */
@@ -15,7 +19,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
 /* Estilos Globais */
@@ -24,26 +27,47 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     font-size: 16px;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
 h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 4px;
+    background: var(--gradient-2);
+    border-radius: 2px;
 }
 
 p {
     font-size: 1.1rem;
     margin-bottom: 1rem;
     color: var(--text-light);
+    line-height: 1.8;
 }
 
 /* Navegação */
 .navbar {
-    background-color: var(--primary-color);
+    background-color: rgba(25, 13, 55, 0.9);
     padding: 1rem 0;
-    transition: background-color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
 }
 
 .navbar-brand {
@@ -57,28 +81,58 @@ p {
 .navbar-brand img {
     margin-right: 10px;
     height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: rotate(10deg);
 }
 
 .navbar-nav .nav-item .nav-link {
     color: var(--text-light);
     margin-left: 1rem;
     font-size: 1.1rem;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    position: relative;
 }
 
-.navbar-nav .nav-item .nav-link:hover {
-    color: var(--hover-color);
+.navbar-nav .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--hover-color);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover::after {
+    width: 100%;
 }
 
 .navbar.scrolled {
     background-color: var(--accent-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow-1);
 }
 
 /* Seções */
 section {
-    padding: 4rem 0;
-    animation: fadeIn 1s ease-in-out both;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-1);
+    opacity: 0.05;
+    z-index: -1;
 }
 
 /* Estilos de competições */
@@ -87,26 +141,48 @@ section {
 }
 
 #competitions .card {
-    background-color: var(--accent-color);
+    background-color: rgba(91, 69, 122, 0.1);
     border: none;
     margin: 1rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--box-shadow-2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 #competitions .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(115, 39, 182, 0.2);
 }
 
 #competitions .card-title {
     color: var(--highlight-color);
     font-weight: bold;
+    font-size: 1.3rem;
 }
 
 #competitions .card-text {
     color: var(--text-light);
-    line-height: 1.4;
+    line-height: 1.6;
+}
+
+#competitions .card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+#competitions .card:hover::before {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
 }
 
 #team {
@@ -124,19 +200,32 @@ section {
 }
 
 #social i {
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+    color: var(--text-light);
 }
 
 #social i:hover {
     color: var(--hover-color);
     transform: rotate(15deg) scale(1.2);
+    text-shadow: 0 0 10px var(--btn-hover-shadow);
 }
 
 /* Footer */
-/* Footer */
 footer {
     background-color: var(--primary-color);
-    padding: 2rem 0;
+    padding: 4rem 0 2rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-2);
 }
 
 footer h5 {
@@ -144,17 +233,35 @@ footer h5 {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+footer h5::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 30px;
+    height: 2px;
+    background: var(--hover-color);
 }
 
 footer p {
     margin: 0;
     font-size: 1rem;
     color: var(--text-light);
+    line-height: 1.8;
 }
 
 footer img {
     max-width: 100px;
     margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+footer img:hover {
+    transform: scale(1.1);
 }
 
 footer .list-inline {
@@ -163,49 +270,68 @@ footer .list-inline {
 }
 
 footer .list-inline-item {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 footer .list-inline-item a {
     color: var(--text-light);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-footer .list-inline-item a:hover {
-    color: var(--hover-color);
+footer .list-inline-item a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--hover-color);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+footer .list-inline-item a:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
 }
 
 /* Botões */
 .btn {
-    background-color: var(--hover-color);
+    background: var(--gradient-2);
     color: var(--text-light);
     border: none;
     padding: 0.75rem 1.5rem;
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 0.3rem;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--gradient-1);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
 }
 
 .btn:hover {
-    background-color: var(--secondary-color);
     box-shadow: 0 0 20px var(--btn-hover-shadow);
-    animation: buttonPulse 1s infinite;
-}
-
-/* Animação de botão */
-@keyframes buttonPulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 20px var(--btn-hover-shadow);
-    }
-    100% {
-        transform: scale(1);
-    }
+    transform: translateY(-3px);
 }
 
 /* Animações */
@@ -225,16 +351,32 @@ footer .list-inline-item a:hover {
     height: 300px;
     overflow: hidden;
     position: relative;
-    border-radius: 8px;
+    border-radius: 15px;
     transition: all 0.3s ease;
 }
 
 .img-hover-zoom img {
-    transition: transform 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .img-hover-zoom:hover img {
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(5deg);
+}
+
+.img-hover-zoom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-hover-zoom:hover::after {
+    opacity: 1;
 }
 
 /* Media Queries para Responsividade */
@@ -252,7 +394,7 @@ footer .list-inline-item a:hover {
     }
 
     .card {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .btn {
@@ -263,11 +405,20 @@ footer .list-inline-item a:hover {
     .img-hover-zoom {
         height: 200px;
     }
+
+    section {
+        padding: 4rem 0;
+    }
 }
 
 /* Carrossel de Competições Futuro */
 .slick-slide {
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    opacity: 0.7;
+}
+
+.slick-slide.slick-active {
+    opacity: 1;
 }
 
 .slick-slide:hover {
@@ -275,248 +426,276 @@ footer .list-inline-item a:hover {
 }
 
 /* Efeitos para as redes sociais */
-.social-icon:hover {
-    color: var(--highlight-color);
-    transition: color 0.3s, transform 0.3s ease-in-out;
-    transform: scale(1.1);
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+    color: var(--text-light);
+    transition: all 0.3s ease;
 }
 
+.social-icon:hover {
+    color: var(--highlight-color);
+    transform: translateY(-5px) rotate(10deg) scale(1.1);
+}
+
+/* Contador regressivo */
 .countdown-timer {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: bold;
-    color: #7327b6;
+    color: var(--hover-color);
     margin: 20px 0;
-    padding: 10px;
-    border: 2px solid #7327b6;
-    border-radius: 10px;
-    background-color: #c9bad3;
-    display: block; /* Garantir que está sendo exibido como bloco */
-    text-align: center; /* Centraliza o texto dentro do bloco */
+    padding: 20px;
+    border: 2px solid var(--hover-color);
+    border-radius: 15px;
+    background-color: rgba(201, 186, 211, 0.1);
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(115, 39, 182, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.countdown-timer span {
+    display: inline-block;
+    min-width: 60px;
+    padding: 0 10px;
+    text-align: center;
+    position: relative;
+}
+
+.countdown-timer span::after {
+    content: ':';
+    position: absolute;
+    right: -5px;
+}
+
+.countdown-timer span:last-child::after {
+    content: '';
 }
 
 /* Seção: Música da Semana Cultural */
 #cultural-music {
-    background-color: var(--secondary-color);
-    padding: 4rem 0;
+    background: var(--gradient-1);
+    padding: 6rem 0;
     text-align: center;
-    border-top: 5px solid var(--primary-color); /* Adicionando uma borda superior */
-    position: relative; /* Para facilitar o posicionamento de elementos */
+    position: relative;
+    overflow: hidden;
+}
+
+#cultural-music::before {
+    content: '♪';
+    position: absolute;
+    font-size: 20rem;
+    opacity: 0.05;
+    top: -50px;
+    left: -50px;
+    color: var(--text-light);
+    transform: rotate(-30deg);
 }
 
 #cultural-music h2 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase; /* Transformando o texto para maiúsculas */
-    letter-spacing: 1px; /* Espaçamento entre letras */
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 #cultural-music p {
     font-size: 1.2rem;
-    color: var(--highlight-color);
-    margin-bottom: 2rem;
-    line-height: 1.5; /* Melhorando o espaçamento entre linhas */
+    color: var(--secondary-color);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #cultural-music iframe {
     width: 100%;
-    max-width: 600px; /* Mantendo o máximo de largura */
-    height: 80px; /* Definindo altura fixa */
-    border: none; /* Removendo borda padrão */
-    border-radius: 5px; /* Borda arredondada */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombras para profundidade */
-    margin: 0 auto; /* Centralizando o iframe */
-}
-
-@media (max-width: 768px) {
-    #cultural-music h2 {
-        font-size: 2rem; /* Reduzindo tamanho do texto em dispositivos móveis */
-    }
-
-    #cultural-music p {
-        font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
-    }
-
-    #cultural-music iframe {
-        max-width: 100%; /* Garantindo que o iframe ocupe 100% da largura */
-        height: 60px; /* Ajustando a altura do iframe em dispositivos móveis */
-    }
+    max-width: 600px;
+    height: 80px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
 }
 
 /* Seção: Comunicado da Semana Cultural */
 #cultural-announcement {
     background-color: var(--secondary-color);
-    padding: 4rem 0;
+    padding: 6rem 0;
     text-align: center;
-    border-top: 5px solid var(--primary-color); /* Adicionando uma borda superior */
-    position: relative; /* Para facilitar o posicionamento de elementos */
-    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#cultural-announcement::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--gradient-2);
+    border-radius: 50%;
+    opacity: 0.1;
 }
 
 #cultural-announcement h2 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase; /* Transformando o texto para maiúsculas */
-    letter-spacing: 1px; /* Espaçamento entre letras */
+    font-size: 3rem;
+    color:  var(--primary-color);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #cultural-announcement p {
     font-size: 1.2rem;
-    color: var(--highlight-color);
-    margin-bottom: 1.5rem;
-    line-height: 1.5; /* Melhorando o espaçamento entre linhas */
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #cultural-announcement .btn {
-    background-color: var(--hover-color);
+    background: var(--gradient-1);
     color: var(--text-light);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 0.3rem;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 1rem; /* Adicionando um espaço acima do botão */
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #cultural-announcement .btn:hover {
-    background-color: var(--primary-color);
-    box-shadow: 0 0 20px var(--btn-hover-shadow);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-    #cultural-announcement h2 {
-        font-size: 2rem; /* Reduzindo tamanho do texto em dispositivos móveis */
-    }
-
-    #cultural-announcement p {
-        font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
-    }
-
-    #cultural-announcement .btn {
-        font-size: 1rem; /* Reduzindo tamanho do botão em dispositivos móveis */
-        padding: 0.5rem 1rem; /* Ajustando padding do botão em dispositivos móveis */
-    }
-    }
 
 /* Seção: Postagens do Instagram */
 #instagram-posts {
-    background-color: #eaeaea; /* Cor de fundo */
-    padding: 4rem 0;
-    text-align: center; /* Centraliza o texto */
+    background-color: #f8f9fa;
+    padding: 6rem 0;
+    text-align: center;
+    position: relative;
+}
+
+#instagram-posts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient-2);
 }
 
 #instagram-posts h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #instagram-posts p {
     font-size: 1.2rem;
-    color: var(--highlight-color);
-    margin-bottom: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Centralizando o conteúdo do Instagram */
 #post-container {
-    display: flex; /* Usando flexbox para centralizar */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    flex-direction: column; /* Organiza em coluna */
-    margin: 0 auto; /* Centraliza o container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .instagram-media {
-    margin-bottom: 20px; /* Espaçamento inferior */
-    max-width: 90%; /* Limita a largura máxima */
-    border: none; /* Removendo bordas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adicionando sombra */
+    max-width: 350px !important;
+    width: 100% !important;
+    background-color: #FFF;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-/* Estilo do carregador */
+.instagram-media:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
 .loader {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
-    margin-top: 20px;
-}
-
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-    #instagram-posts h2 {
-        font-size: 2rem; /* Reduzindo tamanho do texto em dispositivos móveis */
-    }
-
-    #instagram-posts p {
-        font-size: 1rem; /* Reduzindo tamanho do texto em dispositivos móveis */
-    }
+    margin-top: 30px;
 }
 
 /* Seção: Equipe */
 #team-member {
-    margin: 2rem auto;
+    margin: 3rem auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    max-width: 500px; /* Limitando a largura máxima */
-    padding: 1rem;
-    background-color: var(--secondary-color); /* Fundo mais claro para destacar a imagem */
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 350px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 #team-member:hover {
-    transform: scale(1.05); /* Efeito de zoom suave */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra mais intensa ao passar o mouse */
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 #member-image {
-    width: 150px; /* Tamanho fixo para ser quadrada */
-    height: 150px; 
-    object-fit: cover; /* A imagem cobre todo o contêiner */
-    margin: 0 2rem;
-    border: 5px solid var(--text-light); /* Borda branca */
-    border-radius: 0; /* Moldura quadrada */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra da imagem */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid var(--text-light);
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+#team-member:hover #member-image {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .btn {
-    background-color: var(--highlight-color);
+    background: var(--gradient-2);
     color: var(--text-light);
     border: none;
-    padding: 0.75rem 1.5rem; /* Botão maior para destaque */
+    padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    margin: 0 1rem;
+    margin: 0.5rem;
     cursor: pointer;
-    border-radius: 5px; /* Botões com bordas arredondadas */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn:hover {
-    background-color: var(--hover-color);
-    box-shadow: 0 4px 10px rgba(115, 39, 182, 0.5); /* Sombra ao passar o mouse */
-}
-
-.img-hover-zoom {
-    height: 300px; /* Ajuste a altura conforme necessário */
-    overflow: hidden;
-    position: relative;
-    border-radius: 50%; /* Para fazer a imagem ser circular */
-    margin: 0 auto; /* Centraliza a imagem */
-}
-
-.img-hover-zoom img {
-    width: 100%;
-    height: 100%; /* Faz a imagem ocupar todo o espaço */
-    object-fit: cover; /* Garante que a imagem preencha o contêiner */
-    transition: transform 0.5s ease;
-}
-
-.img-hover-zoom:hover img {
-    transform: scale(1.1);
+    background: var(--gradient-1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(115, 39, 182, 0.3);
 }
 
 .modal {
@@ -528,175 +707,277 @@ footer .list-inline-item a:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
+    background-color: var(--primary-color);
+    margin: auto;
+    padding: 2rem;
+    border: 1px solid var(--accent-color);
     width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(115, 39, 182, 0.5);
+    position: relative;
 }
 
 .close {
-    color: #aaa;
-    float: right;
+    color: var(--text-light);
+    position: absolute;
+    top: 10px;
+    right: 20px;
     font-size: 28px;
     font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 .close:hover,
 .close:focus {
-    color: white;
+    color: var(--hover-color);
     text-decoration: none;
     cursor: pointer;
+    transform: rotate(90deg);
 }
 
 /* Estilos para a Seção da Semana Cultural */
-/* Estilos para a Seção da Semana Cultural */
-#cultural-wee {
-    background-color: #f5f5f5; /* Cor de fundo mais suave */
-    padding: 4rem 0;
+#cultural-week {
+    background: var(--gradient-1);
+    padding: 6rem 0;
     text-align: center;
-    border-top: 5px solid #8E24AA; /* Cor de roxo para a borda superior */
     position: relative;
-    animation: fadeIn 1s ease-in-out both;
+    overflow: hidden;
+}
+
+#cultural-week::before,
+#cultural-week::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--gradient-2);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+#cultural-week::before {
+    top: -100px;
+    left: -100px;
+}
+
+#cultural-week::after {
+    bottom: -100px;
+    right: -100px;
 }
 
 .logo-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; /* Alinhamento vertical */
+    margin-bottom: 3rem;
 }
 
-#cultural-wee h2 {
-    font-size: 2.5rem;
-    color: #8E24AA; /* Cor do título com roxo */
-    margin-bottom: 1.5rem;
-    text-transform: uppercase; /* Maiúsculas para destacar o título */
-    letter-spacing: 1px; /* Espaçamento entre letras */
+#cultural-week h2 {
+    font-size: 3.5rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-#cultural-wee p {
-    font-size: 1.1rem;
-    color: #333333; /* Cor do texto (escuro) */
-    margin-bottom: 1.5rem;
-    line-height: 1.6; /* Melhorando o espaçamento entre linhas */
+#cultural-week p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#cultural-wee img {
-    max-width: 200px; /* Limite de largura para a imagem */
+#cultural-week img {
+    max-width: 250px;
     height: auto;
-    border-radius: 10px; /* Borda arredondada na imagem */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
-    margin: 1.5rem 0; /* Margem para espaçamento */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 2rem 0;
+    transition: all 0.3s ease;
 }
 
-#cultural-wee .btn {
-    background-color: #8E24AA; /* Cor do botão com roxo */
-    color: #ffffff; /* Cor do texto do botão */
+#cultural-week img:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+#cultural-week .btn {
+    background: var(--gradient-2);
+    color: var(--text-light);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 0.3rem;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2rem;
 }
 
-#cultural-wee .btn:hover {
-    background-color: #7327b6; /* Cor de hover um pouco mais escura */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra ao passar o mouse */
+#cultural-week .btn:hover {
+    background: var(--gradient-1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
-
-/* Estilos para os cartões de competições */
-.card {
-    background-color: #ffffff; /* Fundo branco para cartões */
-    border: none;
-    margin: 1rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.card-title {
-    color: #8E24AA; /* Cor do título do cartão com roxo */
-    font-weight: bold;
-    font-size: 1.5rem; /* Tamanho maior para destaque */
-}
-
-.card-text {
-    color: #555555; /* Cor do texto do cartão (cinza escuro) */
-    line-height: 1.4;
-}
-
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-    #cultural-wee h2 {
-        font-size: 2rem; /* Reduzindo o tamanho do texto em dispositivos móveis */
-    }
-
-    #cultural-wee p {
-        font-size: 1rem; /* Reduzindo o tamanho do texto em dispositivos móveis */
-    }
-
-    #cultural-wee .btn {
-        font-size: 1rem; /* Reduzindo o tamanho do botão em dispositivos móveis */
-        padding: 0.5rem 1rem; /* Ajustando padding do botão em dispositivos móveis */
-    }
-
-    .card {
-        margin-bottom: 1rem; /* Ajustando margens para responsividade */
-    }
-}
-
 
 /* Estilos para a seção de Divisão de Grupos */
 #group-division {
-    background-color: #f9f9f9;
-    padding: 4rem 0;
+    background-color: var(--secondary-color);
+    padding: 6rem 0;
     text-align: center;
-    border-top: 5px solid #8E24AA;
+    position: relative;
+    overflow: hidden;
+}
+
+#group-division::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    opacity: 0.1;
 }
 
 .section-title {
-    font-size: 2.5rem;
-    color: #8E24AA;
+    font-size: 3rem;
+    color: var(--primary-color);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-2);
+    border-radius: 2px;
 }
 
 .section-description {
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pdf-viewer {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .pdf-viewer iframe {
     border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    width: 100%;
+    height: 600px;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .section-description {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .pdf-viewer iframe {
-        height: 300px;
+        height: 400px;
     }
 }
 
+/* Animações Globais */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 
-/* Variáveis de cor */
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 3s infinite;
+}
+
+/* Efeitos de Hover Globais */
+.hover-grow {
+    transition: all 0.3s ease;
+}
+
+.hover-grow:hover {
+    transform: scale(1.05);
+}
+
+.hover-shadow {
+    transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para Scrollbar Personalizado */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-color);
+    }
