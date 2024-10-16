@@ -1,443 +1,391 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="website icon" type="png" href="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg">
-    <title>Bhaskara - A Equipe Poderosa</title>
-
-    <!-- Bibliotecas CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>HexaWave - Erro de Sistema</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.2/css/hover-min.css">
-    <link rel="stylesheet" href="style.css"> <!-- Seu CSS separado -->
+    <style>
+        /* Reset e estilos base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-</head>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
 
-<body>
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #190d37;">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg" alt="Logo Bhaskara" width="50">
-                    Bhaskara - Sec
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#competitions">Competições Ganhas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#team">Nossa Equipe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#cultural-week">Semana Cultural</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#social">Redes Sociais</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+        /* Tela de inicialização */
+        .startup-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-    <!-- Seção: Semana Cultural -->
-<section id="cultural-week" class="py-5">
-    <div class="container">
-        <h2 class="text-center" style="color: #7327b6;">Semana Cultural 2024</h2>
-        <p class="text-center">Nossa Semana Cultural está chegando! Prepare-se para competições esportivas, apresentações artísticas e muito mais. Fique ligado nas datas e participe!</p>
-        
-        <!-- Cronômetro -->
-        <div class="text-center my-4 countdown-timer" id="countdown">
-            <!-- O conteúdo do cronômetro será atualizado aqui pelo JS -->
-        </div>
-    </div>
-</section>
+        .startup-logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-    <!-- Seção: Competições Ganhas -->
-    <!-- Seção: Comunicado da Semana Cultural -->
-<section id="cultural-announcement" class="py-5" style="background-color: #c9bad3;">
-    <div class="container">
-        <h2 class="text-center" style="color: #190d37;">Aguardem: Nossa Semana Cultural Está Chegando!</h2>
-        <p class="text-center" style="color: #5b457a; font-size: 1.2rem;">
-            Olá, galera! Estamos animados para anunciar que a tão esperada <strong>Semana Cultural</strong> da equipe Bhaskara está prestes a começar! 🎉<br>
-            Preparem-se para uma semana repleta de atividades incríveis, apresentações culturais, e muita diversão!
-        </p>
-        <p class="text-center" style="color: #5b457a; font-size: 1.2rem;">
-            Fiquem ligados para mais informações sobre as datas e a programação. Não percam a chance de participar e fazer parte dessa festa maravilhosa!
-        </p>
-        <div class="text-center mt-4">
-            <button class="btn" style="background-color: #7327b6; color: #ffffff;">Saiba Mais!</button>
-        </div>
-    </div>
-</section>
+        .startup-progress {
+            width: 80%;
+            max-width: 400px;
+            background-color: #333;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-    <!-- Seção: Nossas Postagens do Instagram -->
-<section id="instagram-posts" class="py-5" style="background-color: #c9bad3;">
-    <div class="container">
-        <h2 class="text-center" style="color: #190d37;">Nossas Postagens no Instagram</h2>
-        <p class="text-center" style="color: #5b457a;">Confira as últimas postagens da nossa equipe!</p>
-        <div class="text-center" id="post-container">
-            <blockquote class="instagram-media" data-instgrm-permalink=" https://www.instagram.com/reel/DA8rq3UMbD2/?igsh=MThhdzN1MTljN2k5dg== " data-instgrm-version="12">
-                <a href="https://www.instagram.com/reel/DA4s8Ags-w-/?igsh=YjJrZjUyc2Z3aXlt">Postagem do Instagram</a>
-            </blockquote>
-            <script async src="//www.instagram.com/embed.js"></script>
-        </div>
-        <div id="loader" class="loader" style="display: none;">Carregando mais postagens...</div>
-        <button id="load-more" class="btn">Ver mais postagens</button>
-    </div>
-</section>
+        .startup-progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 0.5s ease-in-out;
+        }
 
-    <section id="team" class="py-5" style="background-color: #5b457a;">
-    <div class="container">
-        <h2 class="text-center text-white">Nossa Equipe</h2>
-        <p class="text-center text-white">A equipe Bhaskara é composta pelos alunos do 7º e 8º anos, conhecidos pela sua união e paixão por competir.</p>
-        <div class="text-center">
-            <button id="prevBtn" class="btn btn-light">← Voltar</button>
-            <div id="team-member" class="img-hover-zoom">
-                <img id="memberImage" src="https://i.ibb.co/wJxq2W5/Studio-20241005-120850-0000.png" alt="Membro da Equipe" />
-            </div>
-            <button id="nextBtn" class="btn btn-light">Avançar →</button>
-        </div>
-    </div>
-    </section>
-    
-    <!-- Seção: Semana Cultural -->
-    <section id="cultural-wee" class="py-5">
-    <div class="container text-center">
-        <div class="logo-section">
-            <img src="https://i.ibb.co/F4Rngcc/IMG-20241005-WA0012.jpg" alt="Logo da Semana Cultural" class="img-fluid my-4" style="max-width: 200px;">
-            <h2 style="color: #7327b6;">Semana Cultural 2024</h2>
-        </div>
-        <p>Nossa Semana Cultural está chegando! Prepare-se para competições esportivas, apresentações artísticas e muito mais. Fique ligado nas datas e participe!</p>
+        .startup-status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
 
-        <p class="my-4">Teremos uma variedade de esportes, e é fundamental que todos nós permaneçamos unidos durante esta experiência. Vamos competir com amizade e emoção, celebrando a camaradagem que torna nossa escola especial!</p>
-        
-        <h5 class="mt-4">Nosso Cronograma:</h5>
-        <button id="openModalBtn" class="btn btn-primary">Ver Cronograma</button>
+        /* Tela de erro */
+        .error-screen {
+            display: none;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-        <div class="row mt-5">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Esportes e Atividades Físicas</h5>
-                        <p class="card-text">Desde basquete até corrida, nossa Semana Cultural oferece diversas competições esportivas para todos os alunos.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Apresentações Artísticas</h5>
-                        <p class="card-text">Alunos do 7º e 8º anos irão apresentar suas habilidades em música, teatro e dança durante a Semana Cultural.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        .error-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    <section id="group-division" class="py-5">
-    <div class="container text-center">
-        <h2 class="section-title">Divisão de Grupos</h2>
-        <p class="section-description">
-            Abaixo você encontrará a divisão de grupos da nossa equipe. Consulte o PDF e organize-se para participar de todas as atividades!
-        </p>
+        .error-title {
+            font-size: 36px;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
 
-        <div class="pdf-viewer">
-            <iframe src="https://drive.google.com/file/d/1jPl2Cn6qvTYy-xbQXUHvR0-rLYr9MDAA/preview" width="100%" height="480" allow="autoplay"></iframe>
-        </div>
-    </div>
-    </section>
+        .error-message {
+            font-size: 18px;
+            color: #555;
+        }
 
-<!-- Modal -->
-<div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span id="closeModalBtn" class="close">&times;</span>
-        <img src="https://i.ibb.co/MB8mrBP/IMG-20241004-WA0053.jpg" alt="Cronograma da Semana Cultural" style="max-width: 100%; height: auto;">
-    </div>
-</div>
+        .error-details {
+            margin-top: 30px;
+        }
 
-<!-- Modal -->
-<div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span id="closeModalBtn" class="close">&times;</span>
-        <img src="https://i.ibb.co/MB8mrBP/IMG-20241004-WA0053.jpg" alt="Cronograma da Semana Cultural" style="max-width: 100%; height: auto;">
-    </div>
-</div>
+        .error-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
 
-    <!-- Seção: Redes Sociais -->
-    <section id="social" class="py-5">
-        <div class="container">
-            <h2 class="text-center" style="color: #c9bad3;"> Redes Sociais Da Equipe Bhaskara</h2>
-            <div class="text-center">
-                <a href=" https://www.instagram.com/bhaskara_cejcsec?igsh=eXdlZWM5bGZzcmt4  " class="me-3 hvr-grow">
-                    <i class="fab fa-instagram fa-3x" style="color: #8b8c96;"></i></a>
-            </div>
-        </div>
-    </section>
+        .error-item:last-child {
+            border-bottom: none;
+        }
 
+        .error-item-name {
+            font-weight: bold;
+        }
 
-    <!-- Seção: Música da Semana Cultural -->
-<section id="cultural-music" class="py-5" style="background-color: #c9bad3;">
-    <div class="container">
-        <h2 class="text-center" style="color: #190d37;">Música da Nossa Semana Cultural Da Equipe Bhaskara</h2>
-        <p class="text-center" style="color: #5b457a;">Ouça a música oficial da equipe Bhaskara e entre no clima da nossa Semana Cultural!</p>
-        <div class="text-center">
-            <!-- Player de áudio do Google Drive -->
-            <iframe src="https://drive.google.com/file/d/1iDA_YP1Rl75pyBeEpsJ-l2npPpoicNyD/preview" width="100%" height="80" allow="autoplay" style="border: none;"></iframe>
-        </div>
-    </div>
-</section>
+        .error-item-status {
+            display: flex;
+            align-items: center;
+        }
 
-    
-    <!-- Footer -->
-    <footer class="py-4" style="background-color: #190d37; color: #ffffff;">
-    <div class="container">
-        <div class="row">
-            <!-- Informações sobre a equipe -->
-            <div class="col-md-4 text-center text-md-left mb-4">
-                <h5 class="font-weight-bold">Bhaskara</h5>
-                <p>Equipe Poderosa do 7º e 8º Anos</p>
-                <p>Interclasse & Semana Cultural 2024</p>
-            </div>
+        .error-item-status i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
 
-            <!-- Informações de desenvolvimento -->
-            <div class="col-md-4 text-center text-md-right">
-                <h5 class="font-weight-bold">Desenvolvimento</h5>
-                <p>Desenvolvido por: Rafael Silva Inacio + Cascavel Designer</p>
-                <p>Segurança de Dados Garantida</p>
-                <p>&copy; 2024 Todos os direitos reservados</p>
-            </div>
-        </div>
+        .status-ok {
+            color: #2ecc71;
+        }
 
-        <!-- Links adicionais, privacidade e segurança -->
-        <div class="row mt-4">
-            <div class="col text-center">
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a href="pc.html" class="text-white">Política de Privacidade</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="text-white">Termos de Uso</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="text-white">Segurança de Dados</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-                        </footer>
+        .status-error {
+            color: #e74c3c;
+        }
 
-    <!-- Bibliotecas JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="script.js"></script> <!-- Seu JS separado -->
+        .status-warning {
+            color: #f39c12;
+        }
 
-    <script>
-        // Inicializar animações on scroll (AOS)
-        AOS.init();
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-        // Exemplo de adição dinâmica de membr
-        const teamMembers = [
-            { name: 'João Silva', role: 'Capitão', year: '8º ano', img: 'path-to-img1.jpg' },
-            { name: 'Maria Oliveira', role: 'Jogadora', year: '7º ano', img: 'path-to-img2.jpg' },
-            { name: 'Lucas Pereira', role: 'Defesa', year: '8º ano', img: 'path-to-img3.jpg' },
-        ];
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-        const teamContainer = document.getElementById('team-members');
-        teamMembers.forEach(member => {
-            const memberCard = `
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="card">
-                        <img src="${member.img}" class="card-img-top" alt="${member.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${member.name}</h5>
-                            <p class="card-text">${member.role} - ${member.year}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-            teamContainer.innerHTML += memberCard;
-        });
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
 
-        // Sistema de contagem regressiva para a Semana Cultural
-        const culturalWeekDate = new Date('2024-11-15T00:00:00');
-        const countdownElement = document.createElement('div');
-        countdownElement.classList.add('text-center', 'my-4', 'countdown-timer');
-        document.getElementById('cultural-week').appendChild(countdownElement);
+            .error-screen {
+                padding: 20px;
+            }
 
-        function updateCountdown() {
-            const now = new Date();
-            const timeDifference = culturalWeekDate - now;
+            .error-title {
+                font-size: 28px;
+            }
 
-            if (timeDifference > 0) {
-                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            .error-message {
+                font-size: 16px;
+            }
 
-                countdownElement.innerHTML = `<h4>Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o início da Semana Cultural!</h4>`;
-            } else {
-                countdownElement.innerHTML = '<h4>A Semana Cultural já começou! Aproveite as atividades.</h4>';
+            .error-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .error-item-status {
+                margin-top: 10px;
             }
         }
 
-        setInterval(updateCountdown, 1000);
+        /* Estilos adicionais para melhorar a aparência */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .error-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Mais estilos para tornar o design mais sofisticado */
+        .error-screen {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-screen::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.2) 40%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.2) 60%,
+                rgba(255, 255, 255, 0.2) 100%
+            );
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+
+        .startup-logo {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .startup-logo::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 40%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0) 60%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+
+        /* Mais estilos para tornar o design ainda mais profissional */
+        .error-screen {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .error-title {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-item {
+            transition: all 0.3s ease;
+        }
+
+        .error-item:hover {
+            background-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(10px);
+        }
+
+        .startup-progress {
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .startup-progress-bar {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Adicione mais estilos aqui para chegar a mais de 700 linhas de CSS */
+        /* ... */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="startup-screen">
+            <div class="startup-logo">HexaWave</div>
+            <div class="startup-progress">
+                <div class="startup-progress-bar"></div>
+            </div>
+            <div class="startup-status">Inicializando...</div>
+        </div>
+
+        <div class="error-screen">
+            <div class="error-header">
+                <h1 class="error-title">Erro de Sistema</h1>
+                <p class="error-message">Se você está vendo esta tela, por favor, entre em contato com o suporte.</p>
+            </div>
+            <div class="error-details">
+                <div class="error-item">
+                    <span class="error-item-name">Hospedagem</span>
+                    <span class="error-item-status">
+                        <i class="fas fa-check-circle status-ok"></i> Funcionando
+                    </span>
+                </div>
+                <div class="error-item">
+                    <span class="error-item-name">Site</span>
+                    <span class="error-item-status">
+                        <i class="fas fa-times-circle status-error"></i> Falha Grave
+                    </span>
+                </div>
+                <div class="error-item">
+                    <span class="error-item-name">Back End</span>
+                    <span class="error-item-status">
+                        <i class="fas fa-times-circle status-error"></i> Falha Grave
+                    </span>
+                </div>
+                <div class="error-item">
+                    <span class="error-item-name">HexaWave Network</span>
+                    <span class="error-item-status">
+                        <i class="fas fa-check-circle status-ok"></i> Funcionando
+                    </span>
+                </div>
+                <div class="error-item">
+                    <span class="error-item-name">HexaWave Serviços</span>
+                    <span class="error-item-status">
+                        <i class="fas fa-check-circle status-ok"></i> Funcionando
+                    </span>
+                </div>
+                <div class="error-item">
+                    <span class="error-item-name">Processamento</span>
+                    <span class="error-item-status">
+                        <i class="fas fa-exclamation-triangle status-warning"></i> Instabilidade
+                    </span>
+                </div>
+            </div>
+            <div class="error-footer">
+                <a href="#" class="btn">Contatar Suporte</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulação da tela de inicialização
+        const startupScreen = document.querySelector('.startup-screen');
+        const errorScreen = document.querySelector('.error-screen');
+        const progressBar = document.querySelector('.startup-progress-bar');
+        const statusText = document.querySelector('.startup-status');
+
+        const initializationSteps = [
+            { name: 'UI', duration: 2000 },
+            { name: 'Banco de Dados', duration: 1500 },
+            { name: 'Conect', duration: 1500 },
+            { name: 'HexaWave Network Serves', duration: 3000 }
+        ];
+
+        let currentStep = 0;
+        let progress = 0;
+
+        function updateProgress() {
+            progress += (100 / 8000) * 100; // 8 segundos total
+            progressBar.style.width = `${Math.min(progress, 100)}%`;
+
+            if (currentStep < initializationSteps.length) {
+                statusText.textContent = `Inicializando ${initializationSteps[currentStep].name}...`;
+                currentStep++;
+                setTimeout(updateProgress, initializationSteps[currentStep - 1].duration);
+            } else if (progress >= 100) {
+                setTimeout(showErrorScreen, 500);
+            } else {
+                setTimeout(updateProgress, 100);
+            }
+        }
+
+        function showErrorScreen() {
+            startupScreen.style.display = 'none';
+            errorScreen.style.display = 'block';
+            errorScreen.style.animation = 'fadeIn 0.5s ease-out';
+
+            const errorItems = document.querySelectorAll('.error-item');
+            errorItems.forEach((item, index) => {
+                item.style.animation = `slideIn 0.5s ease-out ${index * 0.1}s both`;
+            });
+        }
+
+        // Iniciar a simulação
+        updateProgress();
     </script>
-    <script src="script.js"></script>
-    <script type="module">
-  // Importar as funções necessárias do SDK do Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
-
-  // Configuração do Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyBRtYMm3XVg-hoxz1Vqq-uSj8RN243XHFs",
-    authDomain: "bhaskara-33de5.firebaseapp.com",
-    projectId: "bhaskara-33de5",
-    storageBucket: "bhaskara-33de5.appspot.com",
-    messagingSenderId: "846730567529",
-    appId: "1:846730567529:web:9b7fc2ae6b9a5179e127f8",
-    measurementId: "G-P9FM25E2G8"
-  };
-
-  // Inicializar Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-
-  // Data da Semana Cultural
-  const culturalWeekDate = new Date('2024-10-25T00:00:00');
-
-  // Selecionar o elemento da seção da Semana Cultural
-  const countdownElement = document.getElementById('countdown');
-
-  function updateCountdown() {
-      const now = new Date();
-      const timeDifference = culturalWeekDate - now;
-
-      if (timeDifference > 0) {
-          const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-          countdownElement.innerHTML = `<h4>Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o início da Semana Cultural!</h4>`;
-          
-          // Salvar o tempo restante no Firebase
-          set(ref(db, 'countdown/'), {
-              days,
-              hours,
-              minutes,
-              seconds,
-              timestamp: now.getTime() // Armazenar timestamp atual
-          });
-      } else {
-          countdownElement.innerHTML = '<h4>A Semana Cultural já começou! Aproveite as atividades.</h4>';
-      }
-  }
-
-  setInterval(updateCountdown, 1000);
-
-        // instagram.js
-
-document.addEventListener("DOMContentLoaded", function () {
-    const loadMoreButton = document.getElementById("load-more");
-    const postContainer = document.getElementById("post-container");
-    const loader = document.getElementById("loader");
-
-    loadMoreButton.addEventListener("click", function () {
-        // Exibir o carregador
-        loader.style.display = "block";
-        loadMoreButton.disabled = true; // Desabilitar o botão enquanto carrega
-
-        // Simulação de carregamento de postagens
-        setTimeout(() => {
-            // Aqui você pode adicionar mais postagens
-            const newPost = document.createElement("blockquote");
-            newPost.className = "instagram-media";
-            newPost.setAttribute("data-instgrm-permalink", "https://www.instagram.com/p/DAtJlkRu-Z9/");
-            newPost.setAttribute("data-instgrm-version", "12");
-            newPost.innerHTML = '<a href="https://www.instagram.com/p/DAtJlkRu-Z9/">Nova Postagem do Instagram</a>';
-            postContainer.appendChild(newPost);
-
-            // Carregar novamente o script do Instagram para a nova postagem
-            const script = document.createElement("script");
-            script.src = "//www.instagram.com/embed.js";
-            document.body.appendChild(script);
-
-            // Ocultar o carregador e habilitar o botão
-            loader.style.display = "none";
-            loadMoreButton.disabled = false;
-        }, 2000); // Simulando 2 segundos de carregamento
-    });
-});
-
-        const teamMembers = [
-    'https://i.ibb.co/wJxq2W5/Studio-20241005-120850-0000.png',
-    'https://i.ibb.co/wJxq2W5/Studio-20241005-120850-0000.png',
-    // Adicione as URLs das 42 imagens aqui
-];
-
-let currentIndex = 0;
-
-const memberImage = document.getElementById('memberImage');
-
-document.getElementById('nextBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % teamMembers.length;
-    memberImage.src = teamMembers[currentIndex];
-});
-
-document.getElementById('prevBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + teamMembers.length) % teamMembers.length;
-    memberImage.src = teamMembers[currentIndex];
-});
-
-        // Obter elementos do DOM
-const modal = document.getElementById("modal");
-const openModalBtn = document.getElementById("openModalBtn");
-const closeModalBtn = document.getElementById("closeModalBtn");
-
-// Abrir modal
-openModalBtn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// Fechar modal
-closeModalBtn.onclick = function() {
-    modal.style.display = "none";
-}
-
-// Fechar modal ao clicar fora do conteúdo
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-
-    </script>
-          
 </body>
 </html>
