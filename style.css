@@ -1053,3 +1053,83 @@ footer .list-inline-item a:hover::after {
         line-height: 120px;
     }
 }
+
+/* Estilos para a seção de vitórias da equipe Bhaskara */
+#bhaskara-vitorias {
+    background-color: #eaeaea;
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 5px solid #8E24AA;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #7327b6;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.victory-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.victory-item {
+    background-color: #8E24AA;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.victory-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.victory-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.victory-call-to-action {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .victory-item {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .victory-title {
+        font-size: 1.2rem;
+    }
+
+    .victory-call-to-action {
+        font-size: 1rem;
+    }
+        }
