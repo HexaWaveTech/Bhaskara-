@@ -1114,81 +1114,127 @@ footer .list-inline-item a:hover::after {
     font-style: italic;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .victory-item {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .victory-title {
-        font-size: 1.2rem;
-    }
-
-    .victory-call-to-action {
-        font-size: 1rem;
-    }
-        }
-
 #victory-day {
     background-color: #8E24AA; /* Cor roxa elegante */
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-in-out both; /* Animação de entrada */
+}
+
+#victory-day::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 150%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 80%);
+    transform: translateX(-50%);
+    z-index: 0;
 }
 
 #victory-day h2 {
-    font-size: 2.5rem;
-    color: #fff;
+    font-size: 3rem;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    animation: slideInFromLeft 1s ease-in-out both; /* Animação do título */
 }
 
 #victory-day p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #f1f1f1;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .victory-highlight {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra suave para destaque */
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    animation: pulseEffect 1.5s infinite; /* Animação de destaque */
 }
 
 .victory-highlight h3 {
-    font-size: 2rem;
-    color: #4CAF50; /* Verde para transmitir vitória e sucesso */
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: #4CAF50; /* Verde para vitória */
+    margin-bottom: 1.5rem;
     font-weight: bold;
 }
 
 .victory-highlight p {
-    font-size: 1.2rem;
-    color: #333; /* Texto escuro para contraste com fundo claro */
+    font-size: 1.3rem;
+    color: #333;
 }
 
 #victory-day .text-light {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 2rem;
+    color: #f1f1f1;
+    position: relative;
+    z-index: 1;
 }
 
-/* Responsividade para dispositivos móveis */
+/* Animações */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseEffect {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     #victory-day h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .victory-highlight {
-        padding: 1.5rem;
+        padding: 2rem;
     }
 
     .victory-highlight h3 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+    }
+
+    #victory-day p {
+        font-size: 1.1rem;
     }
 }
