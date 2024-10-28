@@ -1133,3 +1133,62 @@ footer .list-inline-item a:hover::after {
         font-size: 1rem;
     }
         }
+
+#victory-day {
+    background-color: #8E24AA; /* Cor roxa elegante */
+    padding: 4rem 0;
+    text-align: center;
+}
+
+#victory-day h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+#victory-day p {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+    margin-bottom: 2rem;
+}
+
+.victory-highlight {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+}
+
+.victory-highlight h3 {
+    font-size: 2rem;
+    color: #4CAF50; /* Verde para transmitir vitória e sucesso */
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.victory-highlight p {
+    font-size: 1.2rem;
+    color: #333; /* Texto escuro para contraste com fundo claro */
+}
+
+#victory-day .text-light {
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    #victory-day h2 {
+        font-size: 2rem;
+    }
+
+    .victory-highlight {
+        padding: 1.5rem;
+    }
+
+    .victory-highlight h3 {
+        font-size: 1.5rem;
+    }
+}
