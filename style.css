@@ -1238,3 +1238,66 @@ footer .list-inline-item a:hover::after {
         font-size: 1.1rem;
     }
 }
+
+
+/* Estilos para a seção de vitórias do dia */
+#vitorias-do-dia {
+    background-color: #fff; /* Fundo branco */
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 5px solid #FFD700; /* Dourado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vitoria-titulo {
+    font-size: 2.5rem;
+    color: #FFD700; /* Dourado */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.vitoria-descricao {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Lista de vitórias */
+.vitoria-lista {
+    margin: 2rem 0;
+    background-color: #FFD700; /* Fundo dourado */
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vitoria-item {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.vitoria-destaque {
+    font-weight: bold;
+    color: #fff; /* Cor de destaque para as vitórias */
+}
+
+.vitoria-chamada {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .vitoria-titulo {
+        font-size: 2rem;
+    }
+
+    .vitoria-descricao, .vitoria-item, .vitoria-chamada {
+        font-size: 1rem;
+    }
+    }
