@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -13,23 +13,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.2/css/hover-min.css">
-    <link rel="stylesheet" href="style.css"> <!-- Seu CSS separado -->
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #190d37;">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg" alt="Logo Bhaskara" width="50">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg" alt="Logo Bhaskara" width="50" class="me-2">
+                    <i class="fas fa-trophy text-warning me-2"></i>
                     Bhaskara - Sec
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -39,16 +32,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#competitions">Competições Ganhas</a>
+                            <a class="nav-link" href="#championships"><i class="fas fa-medal me-1"></i>Campeonatos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#team">Nossa Equipe</a>
+                            <a class="nav-link" href="#team"><i class="fas fa-users me-1"></i>Nossa Equipe</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#cultural-week">Semana Cultural</a>
+                            <a class="nav-link" href="#gallery"><i class="fas fa-images me-1"></i>Galeria</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#social">Redes Sociais</a>
+                            <a class="nav-link" href="#social"><i class="fas fa-share-alt me-1"></i>Redes Sociais</a>
                         </li>
                     </ul>
                 </div>
@@ -56,437 +49,249 @@
         </nav>
     </header>
 
-    <!-- Seção: Semana Cultural -->
+    <main>
+        <!-- Seção: Campeões -->
+        <section id="champions" class="py-5 animate__animated animate__fadeIn">
+            <div class="container text-center">
+                <h2 class="mb-4"><i class="fas fa-crown fa-2x text-warning"></i></h2>
+                <h3 class="text-primary mb-3">Somos Campeões!</h3>
+                <p class="lead">A equipe Bhaskara se destacou e conquistou o título de campeã com 100 pontos de vantagem!</p>
+                <button class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#championsModal">
+                    <i class="fas fa-trophy me-2"></i>Ver Detalhes
+                </button>
+            </div>
+        </section>
 
-    <section id="cultural-week">
-    <div class="container">
-        <h2 class="text-center section-title">Semana Cultural 2024</h2>
-        <p class="text-center section-description">Nossa Semana Cultural começou hoje! Prepare-se para muitas competições, apresentações artísticas e atividades inesquecíveis. Participe com entusiasmo e faça parte dessa experiência incrível!</p>
-        
-        <!-- Cronômetro e Indicação do Primeiro Dia -->
-        <div class="text-center my-4 countdown-container">
-            <div class="countdown-day" id="countdown">
-                <span class="day-number">1</span>
-            </div>
-            <p class="day-description">Hoje é o primeiro dia da Semana Cultural 2024. Fique atento às atividades e aproveite ao máximo!</p>
-        </div>
-    </div>
-</section>
-    <!-- Seção: Competições Ganhas -->
-    <section id="vitorias-do-dia">
-    <div class="container">
-        <h2 class="text-center vitoria-titulo">Vitórias do Dia</h2>
-        <p class="text-center vitoria-descricao">
-            Parabéns à equipe <strong>Bhaskara</strong>! Hoje, celebramos mais conquistas em nossas competições.
-        </p>
-        
-        <div class="vitoria-lista">
-            <div class="vitoria-item">
-                <span class="vitoria-destaque">🏆 Gincanas:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="vitoria-item">
-                <span class="vitoria-destaque">🏆 Circuitos:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="vitoria-item">
-                <span class="vitoria-destaque">🏆 Calculando:</span> Vitória da equipe Bhaskara!
-            </div>
-        </div>
-        
-        <p class="text-center vitoria-chamada">
-            Continuem torcendo! Cada vitória nos aproxima do nosso objetivo!
-        </p>
-    </div>
-</section>
-    <!-- Seção: Comunicado da Semana Cultural -->
-<section id="bhaskara-vitorias">
-    <div class="container">
-        <h2 class="text-center section-title">Semana Cultural 2024 - Primeiras Vitórias da Equipe Bhaskara</h2>
-        <p class="text-center section-description">
-            A Semana Cultural começou com o pé direito para a equipe <strong>Bhaskara</strong>! Já conquistamos importantes vitórias em várias modalidades. Parabéns a todos os envolvidos!
-        </p>
-        
-        <div class="victory-list">
-            <div class="victory-item">
-                <span class="highlight-text">🏆 Carimba Feminino:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="victory-item">
-                <span class="highlight-text">🏆 Carimba Masculino:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="victory-item">
-                <span class="highlight-text">🏆 Cabo de Guerra Feminino:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="victory-item">
-                <span class="highlight-text">🏆 Cabo de Guerra Masculino:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="victory-item">
-                <span class="highlight-text">🏆 Gincana:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="victory-item">
-                <span class="highlight-text">🏆 Circuitos:</span> Vitória da equipe Bhaskara!
-            </div>
-            <div class="victory-item">
-                <span class="highlight-text">🏆 Calculado:</span> Vitória da equipe Bhaskara!
-            </div>
-        </div>
-        
-        <p class="text-center section-call-to-action">
-            Até agora, Bhaskara já venceu em <strong>7</strong> competições! Continuem torcendo e participando! Vamos em busca de mais conquistas!
-        </p>
-    </div>
-</section>
-    <!-- Seção: Nossas Postagens do Instagram -->
-<section id="instagram-posts" class="py-5" style="background-color: #c9bad3;">
-    <div class="container">
-        <h2 class="text-center" style="color: #190d37;">Nossas Postagens no Instagram</h2>
-        <p class="text-center" style="color: #5b457a;">Confira as últimas postagens da nossa equipe!</p>
-        <div class="text-center" id="post-container">
-            <blockquote class="instagram-media" data-instgrm-permalink=" https://www.instagram.com/reel/DA8rq3UMbD2/?igsh=MThhdzN1MTljN2k5dg== " data-instgrm-version="12">
-                <a href="https://www.instagram.com/reel/DA4s8Ags-w-/?igsh=YjJrZjUyc2Z3aXlt">Postagem do Instagram</a>
-            </blockquote>
-            <script async src="//www.instagram.com/embed.js"></script>
-        </div>
-        <div id="loader" class="loader" style="display: none;">Carregando mais postagens...</div>
-        <button id="load-more" class="btn">Ver mais postagens</button>
-    </div>
-</section>
-
-    <section id="team" class="py-5" style="background-color: #5b457a;">
-    <div class="container">
-        <h2 class="text-center text-white">Nossa Equipe</h2>
-        <p class="text-center text-white">A equipe Bhaskara é composta pelos alunos do 7º e 8º anos, conhecidos pela sua união e paixão por competir.</p>
-        <div class="text-center">
-            <button id="prevBtn" class="btn btn-light">← Voltar</button>
-            <div id="team-member" class="img-hover-zoom">
-                <img id="memberImage" src="https://i.ibb.co/wJxq2W5/Studio-20241005-120850-0000.png" alt="Membro da Equipe" />
-            </div>
-            <button id="nextBtn" class="btn btn-light">Avançar →</button>
-        </div>
-    </div>
-    </section>
-    
-    <!-- Seção: Semana Cultural -->
-    <section id="cultural-wee" class="py-5">
-    <div class="container text-center">
-        <div class="logo-section">
-            <img src="https://i.ibb.co/F4Rngcc/IMG-20241005-WA0012.jpg" alt="Logo da Semana Cultural" class="img-fluid my-4" style="max-width: 200px;">
-            <h2 style="color: #7327b6;">Semana Cultural 2024</h2>
-        </div>
-        <p>Nossa Semana Cultural está chegando! Prepare-se para competições esportivas, apresentações artísticas e muito mais. Fique ligado nas datas e participe!</p>
-
-        <p class="my-4">Teremos uma variedade de esportes, e é fundamental que todos nós permaneçamos unidos durante esta experiência. Vamos competir com amizade e emoção, celebrando a camaradagem que torna nossa escola especial!</p>
-        
-        <h5 class="mt-4">Nosso Cronograma:</h5>
-        <button id="openModalBtn" class="btn btn-primary">Ver Cronograma</button>
-
-        <div class="row mt-5">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Esportes e Atividades Físicas</h5>
-                        <p class="card-text">Desde basquete até corrida, nossa Semana Cultural oferece diversas competições esportivas para todos os alunos.</p>
+        <!-- Seção: Campeonatos -->
+        <section id="championships" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Nossos Campeonatos</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col animate__animated animate__fadeInUp">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Futsal Masculino</h5>
+                                <p class="card-text">Campeões invictos no torneio de futsal masculino.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('futsalMasculinoModal')">Saiba mais</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Apresentações Artísticas</h5>
-                        <p class="card-text">Alunos do 7º e 8º anos irão apresentar suas habilidades em música, teatro e dança durante a Semana Cultural.</p>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Futsal Feminino</h5>
+                                <p class="card-text">Nossas meninas arrasaram no campeonato de futsal.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('futsalFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="group-division" class="py-5">
-    <div class="container text-center">
-        <h2 class="section-title">Divisão de Grupos</h2>
-        <p class="section-description">
-            Abaixo você encontrará a divisão de grupos da nossa equipe. Consulte o PDF e organize-se para participar de todas as atividades!
-        </p>
-
-        <div class="pdf-viewer">
-            <iframe src="https://drive.google.com/file/d/1jPl2Cn6qvTYy-xbQXUHvR0-rLYr9MDAA/preview" width="100%" height="480" allow="autoplay"></iframe>
-        </div>
-    </div>
-    </section>
-
-<!-- Modal -->
-<div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span id="closeModalBtn" class="close">&times;</span>
-        <img src="https://i.ibb.co/MB8mrBP/IMG-20241004-WA0053.jpg" alt="Cronograma da Semana Cultural" style="max-width: 100%; height: auto;">
-    </div>
-</div>
-
-<!-- Modal -->
-<div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span id="closeModalBtn" class="close">&times;</span>
-        <img src="https://i.ibb.co/MB8mrBP/IMG-20241004-WA0053.jpg" alt="Cronograma da Semana Cultural" style="max-width: 100%; height: auto;">
-    </div>
-</div>
-
-    <!-- Seção: Redes Sociais -->
-    <section id="social" class="py-5">
-        <div class="container">
-            <h2 class="text-center" style="color: #c9bad3;"> Redes Sociais Da Equipe Bhaskara</h2>
-            <div class="text-center">
-                <a href=" https://www.instagram.com/bhaskara_cejcsec?igsh=eXdlZWM5bGZzcmt4  " class="me-3 hvr-grow">
-                    <i class="fab fa-instagram fa-3x" style="color: #8b8c96;"></i></a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Seção: Música da Semana Cultural -->
-<section id="cultural-music" class="py-5" style="background-color: #c9bad3;">
-    <div class="container">
-        <h2 class="text-center" style="color: #190d37;">Música da Nossa Semana Cultural Da Equipe Bhaskara</h2>
-        <p class="text-center" style="color: #5b457a;">Ouça a música oficial da equipe Bhaskara e entre no clima da nossa Semana Cultural!</p>
-        <div class="text-center">
-            <!-- Player de áudio do Google Drive -->
-            <iframe src="https://drive.google.com/file/d/1iDA_YP1Rl75pyBeEpsJ-l2npPpoicNyD/preview" width="100%" height="80" allow="autoplay" style="border: none;"></iframe>
-        </div>
-    </div>
-</section>
-
-    
-    <!-- Footer -->
-    <footer class="py-4" style="background-color: #190d37; color: #ffffff;">
-    <div class="container">
-        <div class="row">
-            <!-- Informações sobre a equipe -->
-            <div class="col-md-4 text-center text-md-left mb-4">
-                <h5 class="font-weight-bold">Bhaskara</h5>
-                <p>Equipe Poderosa do 7º e 8º Anos</p>
-                <p>Interclasse & Semana Cultural 2024</p>
-            </div>
-
-            <!-- Informações de desenvolvimento -->
-            <div class="col-md-4 text-center text-md-right">
-                <h5 class="font-weight-bold">Desenvolvimento</h5>
-                <p>Desenvolvido por: Rafael Silva Inacio + Cascavel Designer</p>
-                <p>Segurança de Dados Garantida</p>
-                <p>&copy; 2024 Todos os direitos reservados</p>
-            </div>
-        </div>
-
-        <!-- Links adicionais, privacidade e segurança -->
-        <div class="row mt-4">
-            <div class="col text-center">
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a href="pc.html" class="text-white">Política de Privacidade</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="text-white">Termos de Uso</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="text-white">Segurança de Dados</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-                        </footer>
-
-    <!-- Bibliotecas JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="script.js"></script> <!-- Seu JS separado -->
-
-    <script>
-        // Inicializar animações on scroll (AOS)
-        AOS.init();
-
-        // Exemplo de adição dinâmica de membr
-        const teamMembers = [
-            { name: 'João Silva', role: 'Capitão', year: '8º ano', img: 'path-to-img1.jpg' },
-            { name: 'Maria Oliveira', role: 'Jogadora', year: '7º ano', img: 'path-to-img2.jpg' },
-            { name: 'Lucas Pereira', role: 'Defesa', year: '8º ano', img: 'path-to-img3.jpg' },
-        ];
-
-        const teamContainer = document.getElementById('team-members');
-        teamMembers.forEach(member => {
-            const memberCard = `
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="card">
-                        <img src="${member.img}" class="card-img-top" alt="${member.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${member.name}</h5>
-                            <p class="card-text">${member.role} - ${member.year}</p>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Carimba Masculino</h5>
+                                <p class="card-text">Vitória emocionante no torneio de carimba masculino.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('carimbaMasculinoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Carimba Feminino</h5>
+                                <p class="card-text">Nossas meninas dominaram o torneio de carimba.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('carimbaFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Cabo De Guerra Masculino</h5>
+                                <p class="card-text">Força e estratégia garantiram nossa vitória.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('caboGuerraMasculinoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Cabo De Guerra Feminino</h5>
+                                <p class="card-text">Nossas meninas mostraram sua força e garra.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('caboGuerraFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.2s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Voleibol Masculino</h5>
+                                <p class="card-text">Vitória espetacular no torneio de vôlei masculino.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('voleiMasculinoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.4s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Voleibol Feminino</h5>
+                                <p class="card-text">Nossas meninas brilharam nas quadras de vôlei.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('voleiFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.6s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Handebol Masculino</h5>
+                                <p class="card-text">Conquista incrível no campeonato de handebol.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('handebolMasculinoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.8s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Dama Feminino</h5>
+                                <p class="card-text">Estratégia e inteligência garantiram nossa vitória.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('damaFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Basquetebol Masculino</h5>
+                                <p class="card-text">Cestas certeiras levaram nosso time à vitória.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('basqueteMasculinoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.2s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Xadrez Feminino</h5>
+                                <p class="card-text">Nossas meninas dominaram o tabuleiro.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('xadrezFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.4s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">400 Metros Feminino</h5>
+                                <p class="card-text">Velocidade e resistência garantiram o ouro.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('400mFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.6s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Arremesso De Peso Feminino</h5>
+                                <p class="card-text">Força e técnica levaram ao pódio mais alto.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('arremessoPesoFemininoModal')">Saiba mais</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.8s;">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Lançamento De Dardo Feminino</h5>
+                                <p class="card-text">Precisão e potência garantiram a vitória.</p>
+                                <button class="btn btn-primary" onclick="openChampionshipModal('lancamentoDardoFemininoModal')">Saiba mais</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            `;
-            teamContainer.innerHTML += memberCard;
-        });
+            </div>
+        </section>
 
-        // Sistema de contagem regressiva para a Semana Cultural
-        const culturalWeekDate = new Date('2024-11-15T00:00:00');
-        const countdownElement = document.createElement('div');
-        countdownElement.classList.add('text-center', 'my-4', 'countdown-timer');
-        document.getElementById('cultural-week').appendChild(countdownElement);
+        <!-- Outras seções permanecem inalteradas -->
 
-        function updateCountdown() {
-            const now = new Date();
-            const timeDifference = culturalWeekDate - now;
+    </main>
 
-            if (timeDifference > 0) {
-                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <h5>Bhaskara</h5>
+                    <p>Equipe Poderosa do 7º e 8º Anos</p>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <h5>Desenvolvimento</h5>
+                    <img src="opulensys.png" alt="Opulensys Logo" class="img-fluid mb-2" style="max-width: 100px;">
+                    <p>Desenvolvido por Opulensys</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <h5>Parceiros</h5>
+                    <img src="cascavel.png" alt="Cascavel Designer Logo" class="img-fluid mb-2" style="max-width: 100px;">
+                    <p>Design por Cascavel Designer</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Todos os direitos reservados</p>
+                    <a href="#" id="copyrightLink" class="text-white"><i class="fas fa-copyright"></i> Direitos Autorais</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                countdownElement.innerHTML = `<h4>Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o início da Semana Cultural!</h4>`;
-            } else {
-                countdownElement.innerHTML = '<h4>A Semana Cultural já começou! Aproveite as atividades.</h4>';
-            }
-        }
+    <!-- Modais -->
+    <!-- Modal dos Campeões -->
+    <div class="modal fade" id="championsModal" tabindex="-1" aria-labelledby="championsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="championsModalLabel">Detalhes da Vitória</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="planilha.png" alt="Planilha de Vitórias" class="img-fluid mb-3">
+                    <p>Confira nossa incrível performance nesta temporada!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        setInterval(updateCountdown, 1000);
-    </script>
+    <!-- Modal de Direitos Autorais -->
+    <div class="modal fade" id="copyrightModal" tabindex="-1" aria-labelledby="copyrightModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="copyrightModalLabel">Direitos Autorais</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="autoral.png" alt="Documento de Direitos Autorais" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modais para cada campeonato -->
+    <div class="modal fade" id="futsalMasculinoModal" tabindex="-1" aria-labelledby="futsalMasculinoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="futsalMasculinoModalLabel">Futsal Masculino</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>O futsal é um esporte indoor derivado do futebol, jogado entre duas equipes de cinco jogadores cada. Nossa equipe masculina demonstrou habilidade excepcional, estratégia e trabalho em equipe para conquistar o campeonato!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adicione modais similares para os outros campeonatos -->
+
+    <!-- Bibliotecas JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
-    <script type="module">
-  // Importar as funções necessárias do SDK do Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
-
-  // Configuração do Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyBRtYMm3XVg-hoxz1Vqq-uSj8RN243XHFs",
-    authDomain: "bhaskara-33de5.firebaseapp.com",
-    projectId: "bhaskara-33de5",
-    storageBucket: "bhaskara-33de5.appspot.com",
-    messagingSenderId: "846730567529",
-    appId: "1:846730567529:web:9b7fc2ae6b9a5179e127f8",
-    measurementId: "G-P9FM25E2G8"
-  };
-
-  // Inicializar Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-
-  // Data da Semana Cultural
-  const culturalWeekDate = new Date('2024-10-25T00:00:00');
-
-  // Selecionar o elemento da seção da Semana Cultural
-  const countdownElement = document.getElementById('countdown');
-
-  function updateCountdown() {
-      const now = new Date();
-      const timeDifference = culturalWeekDate - now;
-
-      if (timeDifference > 0) {
-          const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-          countdownElement.innerHTML = `<h4>Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o início da Semana Cultural!</h4>`;
-          
-          // Salvar o tempo restante no Firebase
-          set(ref(db, 'countdown/'), {
-              days,
-              hours,
-              minutes,
-              seconds,
-              timestamp: now.getTime() // Armazenar timestamp atual
-          });
-      } else {
-          countdownElement.innerHTML = '<h4>A Semana Cultural já começou! Aproveite as atividades.</h4>';
-      }
-  }
-
-  setInterval(updateCountdown, 1000);
-
-        // instagram.js
-
-document.addEventListener("DOMContentLoaded", function () {
-    const loadMoreButton = document.getElementById("load-more");
-    const postContainer = document.getElementById("post-container");
-    const loader = document.getElementById("loader");
-
-    loadMoreButton.addEventListener("click", function () {
-        // Exibir o carregador
-        loader.style.display = "block";
-        loadMoreButton.disabled = true; // Desabilitar o botão enquanto carrega
-
-        // Simulação de carregamento de postagens
-        setTimeout(() => {
-            // Aqui você pode adicionar mais postagens
-            const newPost = document.createElement("blockquote");
-            newPost.className = "instagram-media";
-            newPost.setAttribute("data-instgrm-permalink", "https://www.instagram.com/p/DAtJlkRu-Z9/");
-            newPost.setAttribute("data-instgrm-version", "12");
-            newPost.innerHTML = '<a href="https://www.instagram.com/p/DAtJlkRu-Z9/">Nova Postagem do Instagram</a>';
-            postContainer.appendChild(newPost);
-
-            // Carregar novamente o script do Instagram para a nova postagem
-            const script = document.createElement("script");
-            script.src = "//www.instagram.com/embed.js";
-            document.body.appendChild(script);
-
-            // Ocultar o carregador e habilitar o botão
-            loader.style.display = "none";
-            loadMoreButton.disabled = false;
-        }, 2000); // Simulando 2 segundos de carregamento
-    });
-});
-
-        const teamMembers = [
-    'https://i.ibb.co/wJxq2W5/Studio-20241005-120850-0000.png',
-    'https://i.ibb.co/wJxq2W5/Studio-20241005-120850-0000.png',
-    // Adicione as URLs das 42 imagens aqui
-];
-
-let currentIndex = 0;
-
-const memberImage = document.getElementById('memberImage');
-
-document.getElementById('nextBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % teamMembers.length;
-    memberImage.src = teamMembers[currentIndex];
-});
-
-document.getElementById('prevBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + teamMembers.length) % teamMembers.length;
-    memberImage.src = teamMembers[currentIndex];
-});
-
-        // Obter elementos do DOM
-const modal = document.getElementById("modal");
-const openModalBtn = document.getElementById("openModalBtn");
-const closeModalBtn = document.getElementById("closeModalBtn");
-
-// Abrir modal
-openModalBtn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// Fechar modal
-closeModalBtn.onclick = function() {
-    modal.style.display = "none";
-}
-
-// Fechar modal ao clicar fora do conteúdo
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-
-    </script>
-          
 </body>
+
 </html>
-
-
