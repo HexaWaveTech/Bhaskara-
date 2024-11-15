@@ -4,289 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erro de Conexão - Opulensys</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="script.js" defer></script>
-    <
-<style>
-    .parallax-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parallax-js@3.1.0/dist/parallax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-.parallax-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-}
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-.loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 90%;
+            width: 600px;
+        }
 
-.progress-bar {
-    width: 300px;
-    height: 20px;
-    background-color: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-}
+        .parallax-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
 
-.progress {
-    width: 0;
-    height: 100%;
-    background-color: #4CAF50;
-    transition: width 0.5s;
-}
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-@media (prefers-reduced-motion: reduce) {
-    .animate__animated {
-        animation: none !important;
-    }
-}
-</style>
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .status-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .status-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body class="bg-gray-100">
-    <div class="parallax-container" id="scene">
-        <div class="parallax-layer" data-depth="0.1" style="background-image: url('https://source.unsplash.com/random/1920x1080?technology');"></div>
-        <div class="parallax-layer" data-depth="0.2" style="background-image: url('https://source.unsplash.com/random/1920x1080?error');"></div>
-    </div>
-
-    <main class="container mx-auto px-4 py-8 relative z-10">
-        <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
-            <h1 class="text-4xl font-bold mb-4 text-red-600 animate__animated animate__fadeIn">Oops! Erro de Conexão</h1>
-            <p class="text-lg mb-6 animate__animated animate__fadeIn animate__delay-1s">Parece que houve um erro ao conectar com o servidor da Opulensys. Por favor, tente novamente.</p>
-            <img src="https://source.unsplash.com/random/800x400?error" alt="Ilustração de erro de conexão" class="w-full rounded-lg mb-6 animate__animated animate__zoomIn animate__delay-2s">
-            <button id="reconnectBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded animate__animated animate__bounceIn animate__delay-3s">
-                <i class="fas fa-sync-alt mr-2" aria-hidden="true"></i> Tentar Reconectar
+<body>
+    <div class="container">
+        <div id="error-screen" class="text-center">
+            <h1 class="text-4xl font-bold mb-4 text-white">Erro de Conexão</h1>
+            <div class="parallax-container mb-4" id="scene">
+                <div class="parallax-layer" data-depth="0.2">
+                    <img src="https://source.unsplash.com/random/600x300?technology" alt="Background" class="w-full h-full object-cover">
+                </div>
+                <div class="parallax-layer" data-depth="0.5">
+                    <img src="erro-pessoas.png" alt="Pessoas com engrenagens" class="w-full h-full object-contain">
+                </div>
+            </div>
+            <p class="text-xl text-white mb-6">Ops... parece que houve um erro ao conectar com o servidor da Opulensys. Por favor, tente novamente.</p>
+            <button id="reconnect-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                <i class="fas fa-sync-alt mr-2"></i> Tentar Reconectar
             </button>
         </div>
-    </main>
 
-    <div id="loadingOverlay" class="loading-overlay hidden" aria-live="polite">
-        <div class="text-center">
-            <div class="progress-bar">
-                <div id="progress" class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        <div id="loading-screen" class="hidden">
+            <h2 class="text-2xl font-bold mb-4 text-white">Reconectando...</h2>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
             </div>
-            <p id="loadingText" class="text-white mt-4 text-xl">Carregando... <span id="progressPercentage">0%</span></p>
+            <p id="loading-text" class="text-white mb-4">Iniciando reconexão...</p>
+            <button id="check-status-btn" class="hidden bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+                <i class="fas fa-chart-line mr-2"></i> Verificar Status
+            </button>
+        </div>
+
+        <div id="status-screen" class="hidden">
+            <h2 class="text-2xl font-bold mb-4 text-white">Status do Sistema</h2>
+            <p class="text-white mb-4">Erro reconhecido pela Opulensys Maintenance</p>
+            <div class="status-grid">
+                <!-- Status items will be dynamically added here -->
+            </div>
         </div>
     </div>
 
-    <section id="statusScreen" class="hidden bg-gray-100 min-h-screen">
-        <div class="container mx-auto px-4 py-8">
-            <h2 class="text-3xl font-bold mb-6 text-center">Status do Sistema</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4">Sistemas (20)</h3>
-                    <ul id="systemList" class="space-y-2"></ul>
-                    <canvas id="systemChart" class="mt-4"></canvas>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4">Componentes (10)</h3>
-                    <ul id="componentList" class="space-y-2"></ul>
-                    <canvas id="componentChart" class="mt-4"></canvas>
-                </div>
-            </div>
-            <div class="mt-8 text-center">
-                <p class="text-lg mb-4">Erro reconhecido pela Opulensys Maintenance</p>
-                <button id="backToErrorBtn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                    <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Voltar para a Página de Erro
-                </button>
-            </div>
-        </div>
-    </section>
-    <script defer>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-    const scene = document.getElementById('scene');
-    new Parallax(scene);
+            const errorScreen = document.getElementById('error-screen');
+            const loadingScreen = document.getElementById('loading-screen');
+            const statusScreen = document.getElementById('status-screen');
+            const reconnectBtn = document.getElementById('reconnect-btn');
+            const checkStatusBtn = document.getElementById('check-status-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const loadingText = document.getElementById('loading-text');
 
-    const reconnectBtn = document.getElementById('reconnectBtn');
-    const loadingOverlay = document.getElementById('loadingOverlay');
-    const progress = document.getElementById('progress');
-    const progressPercentage = document.getElementById('progressPercentage');
-    const statusScreen = document.getElementById('statusScreen');
-    const backToErrorBtn = document.getElementById('backToErrorBtn');
+            // Initialize parallax effect
+            new Parallax(document.getElementById('scene'));
 
-    setTimeout(showErrorNotification, 2000);
-
-    reconnectBtn.addEventListener('click', handleReconnect);
-    backToErrorBtn.addEventListener('click', handleBackToError);
-
-    function showErrorNotification() {
-        Swal.fire({
-            title: 'Erro de Conexão',
-            text: 'Oops... Parece que houve um erro ao conectar com o servidor da Opulensys. Por favor, tente novamente.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-    }
-
-    function handleReconnect() {
-        loadingOverlay.classList.remove('hidden');
-        let width = 0;
-        const interval = setInterval(() => {
-            if (width >= 50) {
-                clearInterval(interval);
-                showImpossibleToContinueNotification();
-            } else {
-                width++;
-                updateProgressBar(width);
-            }
-        }, 120);
-    }
-
-    function updateProgressBar(width) {
-        progress.style.width = width + '%';
-        progress.setAttribute('aria-valuenow', width);
-        progressPercentage.textContent = width + '%';
-    }
-
-    function showImpossibleToContinueNotification() {
-        Swal.fire({
-            title: 'Impossível Continuar',
-            text: 'Não foi possível estabelecer uma conexão com o servidor.',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Verificar Status',
-            cancelButtonText: 'Fechar'
-        }).then((result) => {
-            loadingOverlay.classList.add('hidden');
-            if (result.isConfirmed) {
-                showStatusScreen();
-            }
-        });
-    }
-
-    function handleBackToError() {
-        statusScreen.classList.add('hidden');
-        document.querySelector('main').classList.remove('hidden');
-    }
-
-    function showStatusScreen() {
-        document.querySelector('main').classList.add('hidden');
-        statusScreen.classList.remove('hidden');
-        generateStatusLists();
-        createStatusCharts();
-    }
-
-    function generateStatusLists() {
-        const systemList = document.getElementById('systemList');
-        const componentList = document.getElementById('componentList');
-        const systems = Array.from({length: 20}, (_, i) => `Sistema ${i + 1}`);
-        const components = Array.from({length: 10}, (_, i) => `Componente ${i + 1}`);
-
-        generateList(systemList, systems);
-        generateList(componentList, components);
-    }
-
-    function generateList(listElement, items) {
-        listElement.innerHTML = '';
-        items.forEach(item => {
-            const li = document.createElement('li');
-            const status = Math.random() < 0.5 ? 'online' : 'offline';
-            li.innerHTML = `
-                <span class="font-medium">${item}</span>: 
-                <span class="${status === 'online' ? 'text-green-500' : 'text-red-500'}">${status}</span> 
-                <i class="fas fa-${status === 'online' ? 'check-circle text-green-500' : 'times-circle text-red-500'}" aria-hidden="true"></i>
-            `;
-            listElement.appendChild(li);
-        });
-    }
-
-    function createStatusCharts() {
-        createChart('systemChart', 'Status dos Sistemas', 20);
-        createChart('componentChart', 'Status dos Componentes', 10);
-    }
-
-    function createChart(canvasId, label, total) {
-        const ctx = document.getElementById(canvasId).getContext('2d');
-        const online = Math.floor(Math.random() * (total + 1));
-        const offline = total - online;
-
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Online', 'Offline'],
-                datasets: [{
-                    data: [online, offline],
-                    backgroundColor: ['#10B981', '#EF4444'],
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    title: {
-                        display: true,
-                        text: label
-                    }
-                }
-            }
-        });
-    }
-
-    // Simular uma chamada de API para obter dados de status
-    function fetchStatusData() {
-        return new Promise((resolve) => {
+            // Simulate initial loading
             setTimeout(() => {
-                resolve({
-                    systems: {
-                        total: 20,
-                        online: Math.floor(Math.random() * 21)
-                    },
-                    components: {
-                        total: 10,
-                        online: Math.floor(Math.random() * 11)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro de Conexão',
+                    text: 'Ops... parece que houve um erro ao conectar com o servidor da Opulensys. Por favor, tente novamente.',
+                    confirmButtonText: 'Entendi',
+                    customClass: {
+                        popup: 'bg-gray-800 text-white',
+                        confirmButton: 'bg-blue-500 hover:bg-blue-600'
                     }
                 });
-            }, 1000);
+            }, 2000);
+
+            reconnectBtn.addEventListener('click', () => {
+                errorScreen.classList.add('hidden');
+                loadingScreen.classList.remove('hidden');
+
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 1;
+                    progressBar.style.width = `${progress}%`;
+                    loadingText.textContent = `Reconectando... ${progress}%`;
+
+                    if (progress >= 50) {
+                        clearInterval(interval);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Impossível Continuar',
+                            text: 'Não foi possível completar a reconexão. Por favor, verifique o status do sistema.',
+                            confirmButtonText: 'Verificar Status',
+                            customClass: {
+                                popup: 'bg-gray-800 text-white',
+                                confirmButton: 'bg-green-500 hover:bg-green-600'
+                            }
+                        }).then(() => {
+                            showStatusScreen();
+                        });
+                        checkStatusBtn.classList.remove('hidden');
+                    }
+                }, 120);
+            });
+
+            checkStatusBtn.addEventListener('click', showStatusScreen);
+
+            function showStatusScreen() {
+                loadingScreen.classList.add('hidden');
+                statusScreen.classList.remove('hidden');
+
+                const statusGrid = document.querySelector('.status-grid');
+                statusGrid.innerHTML = '';
+
+                const systems = [
+                    { name: 'Sistema 1', status: 'online' },
+                    { name: 'Sistema 2', status: 'offline' },
+                    { name: 'Sistema 3', status: 'online' },
+                    // ... adicione mais sistemas aqui
+                ];
+
+                const components = [
+                    { name: 'Componente 1', status: 'offline' },
+                    { name: 'Componente 2', status: 'online' },
+                    { name: 'Componente 3', status: 'offline' },
+                    // ... adicione mais componentes aqui
+                ];
+
+                [...systems, ...components].forEach(item => {
+                    const statusItem = document.createElement('div');
+                    statusItem.className = 'status-item';
+                    statusItem.innerHTML = `
+                        <i class="fas fa-${item.status === 'online' ? 'check-circle text-green-500' : 'times-circle text-red-500'} text-2xl mb-2"></i>
+                        <h3 class="text-lg font-semibold text-white">${item.name}</h3>
+                        <p class="text-${item.status === 'online' ? 'green' : 'red'}-400">${item.status}</p>
+                    `;
+                    statusGrid.appendChild(statusItem);
+                });
+
+                // Animate status items
+                gsap.from('.status-item', {
+                    opacity: 0,
+                    y: 50,
+                    stagger: 0.1,
+                    duration: 0.5,
+                    ease: 'power2.out'
+                });
+            }
         });
-    }
-
-    // Atualizar os dados de status periodicamente
-    function updateStatusData() {
-        fetchStatusData().then(data => {
-            updateChart('systemChart', data.systems);
-            updateChart('componentChart', data.components);
-        }).catch(error => {
-            console.error('Erro ao atualizar dados de status:', error);
-        });
-    }
-
-    function updateChart(chartId, data) {
-        const chart = Chart.getChart(chartId);
-        if (chart) {
-            chart.data.datasets[0].data = [data.online, data.total - data.online];
-            chart.update();
-        }
-    }
-
-    // Atualizar dados a cada 30 segundos
-    setInterval(updateStatusData, 30000);
-});
     </script>
 </body>
 </html>
