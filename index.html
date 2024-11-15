@@ -1,297 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="website icon" type="png" href="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg">
-    <title>Bhaskara - A Equipe Poderosa</title>
-
-    <!-- Bibliotecas CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>Erro de Conexão - Opulensys</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="Css1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
+    <style>
+        .parallax-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .progress-bar {
+            width: 300px;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0;
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 0.5s;
+        }
+    </style>
 </head>
+<body class="bg-gray-100">
+    <div class="parallax-container" id="scene">
+        <div class="parallax-layer" data-depth="0.1" style="background-image: url('https://source.unsplash.com/random/1920x1080?technology');"></div>
+        <div class="parallax-layer" data-depth="0.2" style="background-image: url('https://source.unsplash.com/random/1920x1080?error');"></div>
+    </div>
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="https://i.ibb.co/xSBwXV9/Screenshot-20241004-130500-Whats-App.jpg" alt="Logo Bhaskara" width="50" class="me-2">
-                    <i class="fas fa-trophy text-warning me-2"></i>
-                    Bhaskara - Sec
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <div class="container mx-auto px-4 py-8 relative z-10">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4 text-red-600 animate__animated animate__fadeIn">Oops! Erro de Conexão</h1>
+            <p class="text-lg mb-6 animate__animated animate__fadeIn animate__delay-1s">Parece que houve um erro ao conectar com o servidor da Opulensys. Por favor, tente novamente.</p>
+            <img src="https://source.unsplash.com/random/800x400?error" alt="Erro de conexão" class="w-full rounded-lg mb-6 animate__animated animate__zoomIn animate__delay-2s">
+            <button id="reconnectBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded animate__animated animate__bounceIn animate__delay-3s">
+                <i class="fas fa-sync-alt mr-2"></i> Tentar Reconectar
+            </button>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="text-center">
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+            <p id="loadingText" class="text-white mt-4 text-xl">Carregando... <span id="progressPercentage">0%</span></p>
+        </div>
+    </div>
+
+    <div id="statusScreen" class="hidden bg-gray-100 min-h-screen">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6 text-center">Status do Sistema</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4">Sistemas (20)</h3>
+                    <ul id="systemList" class="space-y-2"></ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4">Componentes (10)</h3>
+                    <ul id="componentList" class="space-y-2"></ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-lg mb-4">Erro reconhecido pela Opulensys Maintenance</p>
+                <button id="backToErrorBtn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    <i class="fas fa-arrow-left mr-2"></i> Voltar para a Página de Erro
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#championships"><i class="fas fa-medal me-1"></i>Campeonatos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#team"><i class="fas fa-users me-1"></i>Nossa Equipe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#gallery"><i class="fas fa-images me-1"></i>Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#social"><i class="fas fa-share-alt me-1"></i>Redes Sociais</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Seção: Campeões -->
-        <section id="champions" class="py-5 animate__animated animate__fadeIn">
-            <div class="container text-center">
-                <h2 class="mb-4"><i class="fas fa-crown fa-2x text-warning"></i></h2>
-                <h3 class="text-primary mb-3">Somos Campeões!</h3>
-                <p class="lead">A equipe Bhaskara se destacou e conquistou o título de campeã com 100 pontos de vantagem!</p>
-                <button class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#championsModal">
-                    <i class="fas fa-trophy me-2"></i>Ver Detalhes
-                </button>
-            </div>
-        </section>
-
-        <!-- Seção: Campeonatos -->
-        <section id="championships" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5">Nossos Campeonatos</h2>
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col animate__animated animate__fadeInUp">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Futsal Masculino</h5>
-                                <p class="card-text">Campeões invictos no torneio de futsal masculino.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('futsalMasculinoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Futsal Feminino</h5>
-                                <p class="card-text">Nossas meninas arrasaram no campeonato de futsal.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('futsalFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Carimba Masculino</h5>
-                                <p class="card-text">Vitória emocionante no torneio de carimba masculino.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('carimbaMasculinoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Carimba Feminino</h5>
-                                <p class="card-text">Nossas meninas dominaram o torneio de carimba.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('carimbaFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Cabo De Guerra Masculino</h5>
-                                <p class="card-text">Força e estratégia garantiram nossa vitória.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('caboGuerraMasculinoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Cabo De Guerra Feminino</h5>
-                                <p class="card-text">Nossas meninas mostraram sua força e garra.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('caboGuerraFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.2s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Voleibol Masculino</h5>
-                                <p class="card-text">Vitória espetacular no torneio de vôlei masculino.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('voleiMasculinoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.4s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Voleibol Feminino</h5>
-                                <p class="card-text">Nossas meninas brilharam nas quadras de vôlei.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('voleiFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.6s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Handebol Masculino</h5>
-                                <p class="card-text">Conquista incrível no campeonato de handebol.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('handebolMasculinoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 1.8s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Dama Feminino</h5>
-                                <p class="card-text">Estratégia e inteligência garantiram nossa vitória.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('damaFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Basquetebol Masculino</h5>
-                                <p class="card-text">Cestas certeiras levaram nosso time à vitória.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('basqueteMasculinoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.2s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Xadrez Feminino</h5>
-                                <p class="card-text">Nossas meninas dominaram o tabuleiro.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('xadrezFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.4s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">400 Metros Feminino</h5>
-                                <p class="card-text">Velocidade e resistência garantiram o ouro.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('400mFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.6s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Arremesso De Peso Feminino</h5>
-                                <p class="card-text">Força e técnica levaram ao pódio mais alto.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('arremessoPesoFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col animate__animated animate__fadeInUp" style="animation-delay: 2.8s;">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title">Lançamento De Dardo Feminino</h5>
-                                <p class="card-text">Precisão e potência garantiram a vitória.</p>
-                                <button class="btn btn-primary" onclick="openChampionshipModal('lancamentoDardoFemininoModal')">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Outras seções permanecem inalteradas -->
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-4 bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-                    <h5>Bhaskara</h5>
-                    <p>Equipe Poderosa do 7º e 8º Anos</p>
-                </div>
-                <div class="col-md-4 text-center mb-3 mb-md-0">
-                    <h5>Desenvolvimento</h5>
-                    <img src="opulensys.png" alt="Opulensys Logo" class="img-fluid mb-2" style="max-width: 100px;">
-                    <p>Desenvolvido por Opulensys</p>
-                </div>
-                <div class="col-md-4 text-center text-md-end">
-                    <h5>Parceiros</h5>
-                    <img src="cascavel.png" alt="Cascavel Designer Logo" class="img-fluid mb-2" style="max-width: 100px;">
-                    <p>Design por Cascavel Designer</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>&copy; 2024 Todos os direitos reservados</p>
-                    <a href="#" id="copyrightLink" class="text-white"><i class="fas fa-copyright"></i> Direitos Autorais</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modais -->
-    <!-- Modal dos Campeões -->
-    <div class="modal fade" id="championsModal" tabindex="-1" aria-labelledby="championsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="championsModalLabel">Detalhes da Vitória</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="planilha.png" alt="Planilha de Vitórias" class="img-fluid mb-3">
-                    <p>Confira nossa incrível performance nesta temporada!</p>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Direitos Autorais -->
-    <div class="modal fade" id="copyrightModal" tabindex="-1" aria-labelledby="copyrightModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="copyrightModalLabel">Direitos Autorais</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="autoral.png" alt="Documento de Direitos Autorais" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scene = document.getElementById('scene');
+            new Parallax(scene);
 
-    <!-- Modais para cada campeonato -->
-    <div class="modal fade" id="futsalMasculinoModal" tabindex="-1" aria-labelledby="futsalMasculinoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="futsalMasculinoModalLabel">Futsal Masculino</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>O futsal é um esporte indoor derivado do futebol, jogado entre duas equipes de cinco jogadores cada. Nossa equipe masculina demonstrou habilidade excepcional, estratégia e trabalho em equipe para conquistar o campeonato!</p>
-                </div>
-            </div>
-        </div>
-    </div>
+            setTimeout(() => {
+                Swal.fire({
+                    title: 'Erro de Conexão',
+                    text: 'Oops... Parece que houve um erro ao conectar com o servidor da Opulensys. Por favor, tente novamente.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }, 2000);
 
-    <!-- Adicione modais similares para os outros campeonatos -->
+            const reconnectBtn = document.getElementById('reconnectBtn');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const progress = document.getElementById('progress');
+            const progressPercentage = document.getElementById('progressPercentage');
+            const statusScreen = document.getElementById('statusScreen');
+            const backToErrorBtn = document.getElementById('backToErrorBtn');
 
-    <!-- Bibliotecas JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="script.js"></script>
+            reconnectBtn.addEventListener('click', () => {
+                loadingOverlay.classList.remove('hidden');
+                let width = 0;
+                const interval = setInterval(() => {
+                    if (width >= 50) {
+                        clearInterval(interval);
+                        Swal.fire({
+                            title: 'Impossível Continuar',
+                            text: 'Não foi possível estabelecer uma conexão com o servidor.',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'Verificar Status',
+                            cancelButtonText: 'Fechar'
+                        }).then((result) => {
+                            loadingOverlay.classList.add('hidden');
+                            if (result.isConfirmed) {
+                                showStatusScreen();
+                            }
+                        });
+                    } else {
+                        width++;
+                        progress.style.width = width + '%';
+                        progressPercentage.textContent = width + '%';
+                    }
+                }, 120);
+            });
+
+            backToErrorBtn.addEventListener('click', () => {
+                statusScreen.classList.add('hidden');
+                document.querySelector('.container').classList.remove('hidden');
+            });
+
+            function showStatusScreen() {
+                document.querySelector('.container').classList.add('hidden');
+                statusScreen.classList.remove('hidden');
+                generateStatusLists();
+            }
+
+            function generateStatusLists() {
+                const systemList = document.getElementById('systemList');
+                const componentList = document.getElementById('componentList');
+                const systems = ['Sistema 1', 'Sistema 2', 'Sistema 3', 'Sistema 4', 'Sistema 5', 'Sistema 6', 'Sistema 7', 'Sistema 8', 'Sistema 9', 'Sistema 10', 'Sistema 11', 'Sistema 12', 'Sistema 13', 'Sistema 14', 'Sistema 15', 'Sistema 16', 'Sistema 17', 'Sistema 18', 'Sistema 19', 'Sistema 20'];
+                const components = ['Componente 1', 'Componente 2', 'Componente 3', 'Componente 4', 'Componente 5', 'Componente 6', 'Componente 7', 'Componente 8', 'Componente 9', 'Componente 10'];
+
+                systems.forEach(system => {
+                    const li = document.createElement('li');
+                    const status = Math.random() < 0.5 ? 'online' : 'offline';
+                    li.innerHTML = `<span class="font-medium">${system}</span>: <span class="${status === 'online' ? 'text-green-500' : 'text-red-500'}">${status}</span> <i class="fas fa-${status === 'online' ? 'check-circle text-green-500' : 'times-circle text-red-500'}"></i>`;
+                    systemList.appendChild(li);
+                });
+
+                components.forEach(component => {
+                    const li = document.createElement('li');
+                    const status = Math.random() < 0.5 ? 'online' : 'offline';
+                    li.innerHTML = `<span class="font-medium">${component}</span>: <span class="${status === 'online' ? 'text-green-500' : 'text-red-500'}">${status}</span> <i class="fas fa-${status === 'online' ? 'check-circle text-green-500' : 'times-circle text-red-500'}"></i>`;
+                    componentList.appendChild(li);
+                });
+            }
+        });
+    </script>
 </body>
-
 </html>
